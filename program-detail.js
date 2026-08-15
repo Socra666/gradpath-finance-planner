@@ -4,6 +4,8 @@
   if(!p){app.innerHTML='<div class="empty"><h1>没有找到这个项目</h1><p>项目可能已被移除或链接不完整。</p><a class="official" href="index.html">返回项目列表</a></div>';return}
   document.title=p.name+'｜GradPath 项目详解';
   const req=(window.GRADPATH_REQUIREMENTS||{})[p.id]||null;
+  const official=window.GRADPATH_GET_OFFICIAL_LINKS?window.GRADPATH_GET_OFFICIAL_LINKS(p):{program:p.url,apply:p.url,same:true};
+  const normalizeUrl=url=>String(url||'').trim().replace(/[?#].*$/,'').replace(/\/+$/,'').toLowerCase();
 
   const summaries={
     101:'MIT Sloan 的一年制或一年半制金融硕士，面向应届生与早期职业申请者。项目把现代金融理论、分析工具和职业实践结合起来，并允许学生通过选修方向强化金融工程、资本市场、公司金融或金融科技能力。',
@@ -62,14 +64,30 @@
   const mats={required:[],optional:[],evidence:[]};p.materials.forEach(x=>mats[classifyMaterial(x)].push(x));
   const known=!/待|以新|以.*为准|已关闭|分别更新|各自周期|分轮次|同时申请|预计/.test(p.deadline), info=categoryInfo[category()]||categoryInfo.finance;
   const testInfo=assessment(),advice=(window.GRADPATH_ADVICE||[]).filter(x=>x.ids.includes(p.id)), cases=(window.GRADPATH_CASES||[]).filter(x=>x.ids.includes(p.id));
-  const sourceRows=[{url:p.url,label:'项目或招生官方页面',type:'官方一手来源'},...((req&&req.sources)||[]),...(testInfo.source?[{url:testInfo.source,label:'测评与面试官方说明',type:'官方一手来源'}]:[]),...advice.map(x=>({url:x.source,label:x.title,type:x.label})),...cases.filter(x=>x.trust==='高').map(x=>({url:x.source,label:x.program+' 班级/目标画像',type:x.type}))];
-  const uniqueSources=sourceRows.filter((x,i,a)=>a.findIndex(y=>y.url===x.url)===i);
+  const officialSources=official.same?[{url:official.program,label:'项目官网与申请入口',type:'官方一手来源'}]:[{url:official.program,label:'官网项目介绍',type:'官方一手来源'},{url:official.apply,label:'官网申请入口',type:'官方一手来源'}];
+  const sourceRows=[...officialSources,...((req&&req.sources)||[]),...(testInfo.source?[{url:testInfo.source,label:'测评与面试官方说明',type:'官方一手来源'}]:[]),...advice.map(x=>({url:x.source,label:x.title,type:x.label})),...cases.filter(x=>x.trust==='高').map(x=>({url:x.source,label:x.program+' 班级/目标画像',type:x.type}))];
+  const uniqueSources=sourceRows.filter((x,i,a)=>x.url&&a.findIndex(y=>normalizeUrl(y.url)===normalizeUrl(x.url))===i);
   function materialCol(title,list,kind){return `<div class="material-col"><h3>${title}</h3>${list.length?list.map(x=>`<div class="mat ${kind}"><div><b>${esc(x)}</b><small>${esc(materialNote(x))}</small></div></div>`).join(''):'<div class="notice">当前官方摘要中没有单列该类材料。</div>'}</div>`}
   function levelClass(level){if(/硬性/.test(level||''))return 'hard';if(/第三方/.test(level||''))return 'third';if(/规划/.test(level||''))return 'plan';return 'info'}
   function badge(level){return `<span class="req-badge ${levelClass(level)}">${esc(level||'官网说明')}</span>`}
   function reqCard(title,item){if(!item)return '';return `<div class="req-card"><div class="req-head"><h3>${esc(title)}</h3>${badge(item.level)}</div><b class="req-main">${esc(item.headline)}</b><p>${esc(item.detail)}</p></div>`}
   function writingCard(item){return `<div class="req-doc"><div class="req-head"><b>${esc(item.name)}</b>${badge(item.level)}</div>${item.limit?`<small>长度 / 形式：${esc(item.limit)}</small>`:''}<p>${esc(item.focus)}</p></div>`}
   function extraCard(item){return `<div class="req-doc"><div class="req-head"><b>${esc(item.name)}</b>${badge(item.level)}</div><p>${esc(item.detail)}</p></div>`}
+  function officialButtons(){return official.same?`<div class="official-links"><a class="official" href="${official.program}" target="_blank" rel="noopener">项目官网与申请入口 →</a></div>`:`<div class="official-links"><a class="official secondary" href="${official.program}" target="_blank" rel="noopener">官网项目介绍 →</a><a class="official" href="${official.apply}" target="_blank" rel="noopener">官网申请入口 →</a></div>`}
+  function barPanel(){
+    const engine=window.GRADPATH_EVALUATOR;if(!engine)return '';
+    const model=engine.archetype(p),keys=Object.keys(model.weights),maxWeight=Math.max(...keys.map(k=>model.weights[k]));
+    const weightBars=keys.map(k=>`<div class="weight-row"><b>${esc(engine.labels[k])}</b><div class="weight-track"><i style="width:${Math.round(model.weights[k]/maxWeight*100)}%"></i></div><span>${model.weights[k]}%</span></div>`).join('');
+    let personal='<div class="notice">你还没有保存个人背景。回到首页填写“个人能力评估”后，这里会自动显示该项目下的个人表现 Bar、匹配分和规划概率区间。<br><a class="back" href="index.html">前往首页评估 →</a></div>';
+    const saved=engine.savedProfile();
+    if(saved&&Number(saved.gpa)>0){
+      const profile=Object.assign({program:String(p.id),school:0,scale:4,gpa:0,rank:0,courses:'',code:'',projects:'',englishType:'none',english:0,greQ:0,greV:0,gmat:0,internships:[],research:'',awards:'',leadership:'',intl:'',finance:'',goals:''},saved,{internships:Array.isArray(saved.internships)?saved.internships:[]});
+      const result=engine.evaluate(p,profile);
+      const dimBars=keys.map(k=>`<div class="weight-row"><b>${esc(engine.labels[k])}</b><div class="weight-track"><i style="width:${result.dims[k]}%"></i></div><span>${result.dims[k]}</span></div>`).join('');
+      personal=`<div class="match-summary"><b>${result.score}</b><div><strong>${esc(result.verdict)}</strong><br><span>规划概率区间 ${result.lo}%–${result.hi}%</span></div></div><div class="weight-chart match-chart">${dimBars}</div><div class="notice">个人 Bar 读取你保存在当前浏览器的评估资料；概率区间仅用于选校规划，不是校方录取率或录取承诺。</div>`;
+    }
+    return `<section class="panel"><div class="bar-header"><div><h2>项目评估 Bar</h2><p>先按项目类型决定权重，再用你的真实背景计算匹配表现。</p></div><span class="status">${esc(model.name)}</span></div><h3>该项目采用的非等权模型</h3><div class="weight-chart">${weightBars}</div><div class="notice">条形长度按本项目的最高单项权重缩放，右侧百分比才是实际权重。它是 GradPath 的规划模型，不是学校公开的录取评分表。</div><h3>我的当前匹配表现</h3>${personal}</section>`;
+  }
   function requirementPanel(){if(!req)return '';
     return `<section class="panel requirement-panel"><div class="section-title"><div><h2>申请材料精确要求</h2><p>逐项目拆开语言、标化、文书、推荐信与附加环节；分数和字数旁会标明信息性质。</p></div><span class="checked">核验于 ${esc(req.checked)}</span></div><div class="req-legend">${badge('官网硬性要求')}${badge('官网说明')}${badge('本站规划建议（非校方门槛）')}${badge('第三方数据库（仅供交叉参考）')}</div><div class="req-grid">${reqCard('语言成绩',req.language)}${reqCard('GRE / GMAT',req.tests)}${reqCard('推荐信',req.references)}${reqCard('简历',req.cv)}${reqCard('成绩单',req.transcript)}</div><h3>文书题目、字数与内容偏向</h3><div class="req-docs">${req.writing.length?req.writing.map(writingCard).join(''):'<div class="notice">官网公开页没有披露独立文书题目或字数；申请系统开放后再按字段核验。</div>'}</div>${req.extra&&req.extra.length?`<h3>视频、面试与其他材料</h3><div class="req-docs">${req.extra.map(extraCard).join('')}</div>`:''}<div class="accuracy-note"><b>怎样看“建议分数”：</b>只有标为“官网硬性要求”或“官网说明”的数字来自学校；本站规划区间和第三方数据库都不会被写成录取线。若官网不收 GRE，本页不会建议你为该项目送分。</div></section>`
   }
@@ -77,6 +95,7 @@
   const progressItems=req?[`核验语言：${req.language.headline}`,`核验标化：${req.tests.headline}`,`推荐信：${req.references.headline}`,`简历：${req.cv.headline}`,`成绩单：${req.transcript.headline}`,...req.writing.map(x=>`文书：${x.name}`),...(req.extra||[]).map(x=>`附加：${x.name}`)]:p.materials;
   app.innerHTML=`<section class="hero"><div class="school">${esc(p.school)}</div><h1>${esc(p.name)}</h1><div class="sub">${esc(p.degree)} · ${esc(p.term)}</div><div class="tags">${p.tags.map(x=>`<span class="tag">${esc(x)}</span>`).join('')}<span class="status ${known?'':'wait'}">${known?'日期已明确':'新周期待核验'}</span></div></section><div class="layout"><div class="main">
   <section class="panel"><h2>项目介绍</h2><p class="lead">${esc(intro())}</p><h3>适合什么样的人</h3><p>${esc(info.fit)}</p><div class="notice">本页中文内容是对官方项目定位的提炼，不是官网逐字翻译；课程与要求发生冲突时，以页面底部官方来源为准。</div></section>
+  ${barPanel()}
   <section class="panel"><h2>培养内容与项目属性</h2><div class="topic-grid">${topics().map(x=>`<div class="topic"><b>${x[0]}</b><p>${x[1]}</p></div>`).join('')}</div><p class="notice">这里展示的是官网定位所对应的学习主题，不冒充当年逐门课程清单；选修课和课程名称可能每年调整。</p></section>
   <section class="panel"><h2>申请轮次与日期</h2><div class="topic"><b>当前可确认的截止信息</b><p>${esc(p.deadline)}</p></div><h3>准备与申请时间线</h3><div class="timeline">${p.events.map(e=>`<div class="event"><b>${esc(e[0])}</b><p>${esc(e[1])}</p></div>`).join('')}</div>${known?'':'<div class="notice">2027 入学轮次尚未由项目完整公布。页面保留准备顺序，但不把上一申请季的日期写成当前日期。</div>'}</section>
   ${requirementPanel()}
@@ -88,7 +107,7 @@
   <section class="panel"><h2>招生团队 / 官方观点</h2>${advice.length?advice.map(x=>`<div class="advice"><b>${esc(x.title)}</b><ul>${x.points.map(v=>`<li>${esc(v)}</li>`).join('')}</ul><a class="back" href="${x.source}" target="_blank" rel="noopener">查看原文 →</a></div>`).join(''):'<div class="notice">暂未收录该项目单独的招生团队观点摘要。请优先阅读下方官方项目页。</div>'}</section>
   <section class="panel"><h2>公开班级画像与案例</h2><p class="notice">案例不等于最低门槛，也不参与个人评估。官方班级画像是群体统计；社区自报信息可能不完整。</p>${cases.length?`<div class="source-grid">${cases.map(x=>`<div class="case"><span class="trust ${x.trust==='低'?'low':''}">${esc(x.trust)}可信度 · ${esc(x.type)}</span><h3>${esc(x.school)} · ${esc(x.year)}</h3><p><b>GPA：</b>${esc(x.gpa)}</p><p><b>标化：</b>${esc(x.test)}</p><p><b>经历：</b>${esc(x.experience)}</p><p><b>结果：</b>${esc(x.outcome)}</p><a class="back" href="${x.source}" target="_blank" rel="noopener">原始来源 →</a></div>`).join('')}</div>`:'<div class="notice">暂无与该项目直接对应、且能够核验的公开画像。</div>'}</section>
   <section class="panel"><h2>来源与核验状态</h2>${uniqueSources.map(x=>`<div class="source"><a href="${x.url}" target="_blank" rel="noopener">${esc(x.label)} →</a><small>${esc(x.type)} · 本页整理日期：${esc((req&&req.checked)||window.GRADPATH_DATA_DATE||'2026-08-15')}</small></div>`).join('')}<div class="notice">官方项目页是申请要求的最高优先级。第三方数据库只在官网没有提供画像或分数建议时用于交叉参考，不用于确认硬性要求。</div></section>
-  </div><aside class="sidecol"><div class="side"><div class="school">申请关键节点</div><div class="deadline">${esc(p.deadline)}</div><div class="sub">${esc(p.term)}</div><a class="official" href="${p.url}" target="_blank" rel="noopener">打开官方页面 →</a><button class="save" id="saveBtn">${saved.has(p.id)?'★ 已收藏':'☆ 收藏项目'}</button><h3>我的材料进度</h3>${progressItems.map((x,i)=>`<label class="check"><input type="checkbox" data-check="${i}" ${localStorage.getItem('detail-precise-check-'+p.id+'-'+i)==='1'?'checked':''}><span>${esc(x)}</span></label>`).join('')}</div></aside></div>`;
+  </div><aside class="sidecol"><div class="side"><div class="school">申请关键节点</div><div class="deadline">${esc(p.deadline)}</div><div class="sub">${esc(p.term)}</div>${officialButtons()}<button class="save" id="saveBtn">${saved.has(p.id)?'★ 已收藏':'☆ 收藏项目'}</button><h3>我的材料进度</h3>${progressItems.map((x,i)=>`<label class="check"><input type="checkbox" data-check="${i}" ${localStorage.getItem('detail-precise-check-'+p.id+'-'+i)==='1'?'checked':''}><span>${esc(x)}</span></label>`).join('')}</div></aside></div>`;
   document.querySelector('#saveBtn').onclick=()=>{saved.has(p.id)?saved.delete(p.id):saved.add(p.id);localStorage.setItem('gradpath-saved',JSON.stringify([...saved]));document.querySelector('#saveBtn').textContent=saved.has(p.id)?'★ 已收藏':'☆ 收藏项目'};
   document.querySelectorAll('[data-check]').forEach(x=>x.onchange=()=>localStorage.setItem('detail-precise-check-'+p.id+'-'+x.dataset.check,x.checked?'1':'0'));
 })();
