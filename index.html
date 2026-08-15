@@ -33,7 +33,7 @@
   <dialog id="dialog"><div class="modal" id="modal"></div></dialog>
   <dialog id="assessDialog" class="assess-dialog"><div class="modal" id="assessModal"></div></dialog>
   <script src="data.js"></script>
-  <script src="official-links.js"></script>
+  <script src="official-links.js?v=20260815-2"></script>
   <script>
   const programs=window.GRADPATH_PROGRAMS||[
     {id:1,school:'Massachusetts Institute of Technology',aliases:'MIT 麻省理工',name:'Master of Science in Electrical Engineering and Computer Science',degree:'SM · 校内研究型项目',field:'Computer Science AI EECS 计算机 人工智能',deadline:'以官网当期通知为准',term:'Fall intake',tags:['研究导向','全日制','STEM'],url:'https://www.eecs.mit.edu/academics/graduate-programs/admission-process/',materials:['在线申请表','成绩单','3 封推荐信','Statement of Objectives','英语能力证明（如适用）'],events:[['入学前 12–15 个月','确认研究方向与项目适配度'],['9–10 月','准备文书、推荐信与成绩单'],['官网截止日前','提交并复核申请'],['提交后','跟踪状态及补件通知']]},
@@ -66,7 +66,7 @@
   document.querySelector('#searchBtn').onclick=()=>{setFilterAll();search()};[schoolInput,majorInput].forEach(x=>x.addEventListener('keydown',e=>{if(e.key==='Enter'){setFilterAll();search()}if(e.key==='Escape')closeSuggestions()}));document.addEventListener('click',e=>{if(!e.target.closest('.autocomplete'))closeSuggestions()});document.querySelector('#grid').onclick=e=>{const save=e.target.closest('[data-save]'),detail=e.target.closest('[data-id]');if(save){let id=+save.dataset.save;saved.has(id)?saved.delete(id):saved.add(id);localStorage.setItem('gradpath-saved',JSON.stringify([...saved]));render()}if(detail)openDetail(programs.find(p=>p.id===+detail.dataset.id))};document.querySelectorAll('[data-filter]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-filter]').forEach(x=>x.classList.remove('active'));b.classList.add('active');filter=b.dataset.filter;render()});document.querySelector('#dialog').onclick=e=>{if(e.target.id==='dialog')e.target.close()};render();
   </script>
   <script src="cases.js"></script>
-  <script src="evaluator-v2.js"></script>
+  <script src="evaluator-v2.js?v=20260815-2"></script>
   <script src="detail-nav.js"></script>
   <script src="ai-assistant.js"></script>
   <script src="timeline-nav.js"></script>
