@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex">
+  <meta name="referrer" content="no-referrer">
+  <title>申请时间线｜GradPath</title>
+  <style>
+    :root{--ink:#17201d;--muted:#69736e;--paper:#f4f2eb;--card:#fffdf8;--green:#174c3c;--green2:#246b55;--lime:#dff36d;--line:#d9ddd4;--orange:#d96b3e;--orange-soft:#fff0e7;--blue:#416f8d;--blue-soft:#eaf2f6;--shadow:0 20px 55px rgba(32,57,47,.08)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif}.wrap{width:min(1180px,calc(100% - 40px));margin:auto}button,input,select{font:inherit}button{cursor:pointer}
+    header{height:72px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{font-size:22px;font-weight:900;color:var(--ink);text-decoration:none;letter-spacing:-.5px}.brand i{display:inline-block;width:13px;height:13px;border-radius:50%;background:var(--lime);margin-right:8px}.header-nav{display:flex;align-items:center;gap:10px}.header-nav a{font-size:13px;font-weight:800;text-decoration:none;color:var(--green);padding:9px 12px;border-radius:10px}.header-nav a.active{background:var(--green);color:white}
+    .hero{padding:48px 0 25px}.eyebrow{font-size:12px;font-weight:900;letter-spacing:1.5px;color:var(--green)}.hero-grid{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:end}.hero h1{font-size:48px;line-height:1.08;letter-spacing:-2px;margin:12px 0 14px}.hero p{max-width:680px;color:var(--muted);font-size:16px;line-height:1.8;margin:0}.next-card{background:var(--green);color:white;border-radius:22px;padding:23px 24px;position:relative;overflow:hidden;box-shadow:var(--shadow)}.next-card:after{content:'';position:absolute;width:150px;height:150px;border:28px solid rgba(223,243,109,.14);border-radius:50%;right:-55px;top:-65px}.next-kicker{font-size:11px;font-weight:900;letter-spacing:1.2px;color:var(--lime)}.next-card h2{font-size:22px;line-height:1.35;margin:9px 0 4px;max-width:310px}.next-date{font-size:13px;opacity:.72}.countdown{display:flex;align-items:flex-end;gap:8px;margin-top:16px}.countdown b{font-size:44px;line-height:.9;color:var(--lime)}.countdown span{font-size:13px;opacity:.8}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:9px 0 18px}.stat{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:16px 17px}.stat small{display:block;color:var(--muted);font-size:11px;margin-bottom:7px}.stat strong{font-size:24px}.stat em{font-style:normal;font-size:11px;color:var(--muted);margin-left:5px}
+    .control-panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:17px;box-shadow:0 12px 35px rgba(32,57,47,.04);position:sticky;top:8px;z-index:5}.controls{display:grid;grid-template-columns:minmax(220px,1fr) auto auto;gap:12px;align-items:center}.searchbox{position:relative}.searchbox:before{content:'⌕';position:absolute;left:14px;top:10px;font-size:22px;color:var(--muted)}.searchbox input{width:100%;height:45px;border:1px solid var(--line);border-radius:12px;background:white;padding:0 14px 0 42px;outline:none;color:var(--ink)}.searchbox input:focus{border-color:var(--green)}.chips{display:flex;gap:6px;flex-wrap:wrap}.chip,.export{border:1px solid var(--line);background:white;color:var(--muted);border-radius:11px;padding:10px 12px;font-size:12px;font-weight:800}.chip.active{background:var(--green);border-color:var(--green);color:white}.export{background:var(--lime);border-color:var(--lime);color:#27321f;white-space:nowrap}.export:disabled{opacity:.5;cursor:not-allowed}
+    .month-rail{display:flex;gap:9px;overflow:auto;padding:15px 2px 1px;margin-top:13px;border-top:1px solid #edf0e9;scrollbar-width:thin}.month-btn{min-width:92px;background:transparent;border:0;text-align:left;border-left:2px solid var(--line);padding:2px 8px}.month-btn b{font-size:12px;display:block}.month-btn small{font-size:10px;color:var(--muted)}.month-btn.has-deadline{border-color:var(--orange)}.month-btn:hover b{color:var(--green)}
+    .legend{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:11px;margin:17px 0 8px}.legend span{display:flex;align-items:center;gap:7px}.symbol{width:10px;height:10px;display:inline-block;background:var(--green2);border-radius:50%}.symbol.deadline{background:var(--orange);border-radius:2px;transform:rotate(45deg)}.symbol.assessment{background:var(--blue);border-radius:2px}.symbol.pending{background:transparent;border:2px solid #9ca6a0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin:34px 0 17px}.section-head h2{font-size:27px;margin:0 0 5px}.section-head p{font-size:12px;color:var(--muted);margin:0}.section-head .hint{max-width:390px;text-align:right;line-height:1.6}
+    .timeline{position:relative;padding-bottom:12px}.timeline:before{content:'';position:absolute;left:114px;top:4px;bottom:0;width:2px;background:var(--line)}.month-group{position:relative;scroll-margin-top:120px}.month-label{width:94px;padding:20px 0;position:sticky;top:112px;z-index:2}.month-label b{display:block;font-size:23px}.month-label span{font-size:11px;color:var(--muted)}.moments{margin-left:145px;margin-top:-69px;padding-bottom:22px}.moment{position:relative;background:var(--card);border:1px solid var(--line);border-radius:17px;margin-bottom:12px;padding:18px 19px;transition:.2s}.moment:hover{transform:translateY(-2px);box-shadow:var(--shadow)}.moment:before{content:'';position:absolute;left:-38px;top:24px;width:12px;height:12px;border-radius:50%;background:var(--green2);border:4px solid var(--paper);box-shadow:0 0 0 2px var(--green2)}.moment.deadline:before{border-radius:3px;background:var(--orange);box-shadow:0 0 0 2px var(--orange);transform:rotate(45deg)}.moment.assessment:before{border-radius:3px;background:var(--blue);box-shadow:0 0 0 2px var(--blue)}.moment.is-next{border-color:#ef9973;box-shadow:0 12px 32px rgba(217,107,62,.09)}.moment.is-next:after{content:'';position:absolute;inset:-1px;border:2px solid rgba(217,107,62,.25);border-radius:17px;pointer-events:none;animation:breathe 2.6s ease-in-out infinite}.moment.done{opacity:.58}.moment.done h3{text-decoration:line-through}@keyframes breathe{50%{opacity:.25}}
+    .moment-grid{display:grid;grid-template-columns:92px 1fr auto;gap:17px;align-items:start}.date-tile{border-right:1px solid var(--line);padding-right:13px}.date-tile b{font-size:27px;line-height:1;display:block}.date-tile span{font-size:11px;color:var(--muted);display:block;margin-top:6px;line-height:1.5}.type-line{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.type-pill{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:900;padding:5px 8px;border-radius:20px;background:#e8f1df;color:var(--green)}.deadline .type-pill{background:var(--orange-soft);color:#9b4724}.assessment .type-pill{background:var(--blue-soft);color:var(--blue)}.urgency{font-size:10px;font-weight:900;color:var(--orange)}.moment h3{font-size:18px;line-height:1.4;margin:7px 0 6px}.moment-desc{font-size:12px;color:var(--muted);line-height:1.6;margin:0}.program-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}.program-link{font-size:11px;color:var(--green);text-decoration:none;background:#edf0e8;border-radius:8px;padding:6px 8px}.program-link:hover{text-decoration:underline}.more-programs summary{cursor:pointer;font-size:11px;color:var(--green);padding:6px 3px}.more-programs[open] summary{margin-bottom:6px}.more-programs .program-list{margin-top:0}.actions{display:flex;gap:6px;flex-direction:column;min-width:96px}.action{border:1px solid var(--line);background:white;color:var(--green);border-radius:9px;padding:8px 9px;font-size:11px;font-weight:800}.action.on{background:#edf0e8}.action.calendar{background:var(--lime);border-color:var(--lime);color:#26321f}
+    .empty{background:var(--card);border:1px dashed #aab3ad;border-radius:17px;padding:48px;text-align:center;color:var(--muted)}.empty b{color:var(--ink);display:block;margin-bottom:7px}.pending-wrap{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;padding-bottom:55px}.pending-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 16px;display:grid;grid-template-columns:1fr auto;gap:12px}.pending-card h3{font-size:14px;margin:2px 0 7px;line-height:1.4}.pending-card p{font-size:11px;color:var(--muted);margin:0;line-height:1.55}.pending-school{font-size:10px;color:var(--green);font-weight:900;text-transform:uppercase}.pending-card a{font-size:11px;font-weight:800;color:var(--green);text-decoration:none;white-space:nowrap}.pending-note{background:#e9ede5;border-radius:13px;padding:13px 15px;font-size:12px;color:#56615c;line-height:1.65;margin-bottom:13px}.pending-note b{color:var(--ink)}
+    .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#17201d;color:white;border-radius:12px;padding:11px 16px;font-size:12px;opacity:0;pointer-events:none;transition:.25s;z-index:20}.toast.show{opacity:1;transform:translate(-50%,0)}footer{border-top:1px solid var(--line);padding:24px 0 38px;color:var(--muted);font-size:11px;line-height:1.6}
+    @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.next-card{max-width:560px}.stats{grid-template-columns:repeat(2,1fr)}.controls{grid-template-columns:1fr}.control-panel{position:static}.month-label{position:static}.pending-wrap{grid-template-columns:1fr}}
+    @media(max-width:650px){.wrap{width:min(100% - 24px,1180px)}header{height:auto;padding:15px 0;align-items:flex-start}.header-nav{gap:2px;flex-direction:column;align-items:flex-end}.header-nav a{padding:5px 7px}.hero{padding-top:34px}.hero h1{font-size:38px}.stats{gap:8px}.stat{padding:13px}.stat strong{font-size:20px}.timeline:before{left:10px}.month-label{width:auto;padding:23px 0 11px 31px}.month-label b{display:inline;font-size:18px}.month-label span{margin-left:7px}.moments{margin:0 0 0 30px;padding:0}.moment{padding:15px}.moment:before{left:-27px}.moment-grid{grid-template-columns:62px 1fr}.date-tile b{font-size:22px}.actions{grid-column:1/-1;flex-direction:row}.action{flex:1}.section-head{align-items:start;flex-direction:column}.section-head .hint{text-align:left}.pending-card{grid-template-columns:1fr}.pending-card a{white-space:normal}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.moment,.toast{transition:none}.moment.is-next:after{animation:none}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="index.html"><i></i>GradPath</a>
+      <nav class="header-nav"><a href="index.html">项目列表</a><a class="active" href="timeline.html">申请时间线</a></nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero-grid">
+          <div><div class="eyebrow">APPLICATION CONTROL CENTER · UPDATED 2026-08-15</div><h1>所有申请节点，<br>一眼看清。</h1><p>开放、截止、笔试与面试节点按真实日期排列；相同日期自动合并。官网尚未公布的项目不会被猜成具体日期，而是集中进入待更新清单。</p></div>
+          <aside class="next-card" id="nextCard" aria-live="polite"></aside>
+        </div>
+      </section>
+      <section class="stats" id="stats"></section>
+      <section class="control-panel" aria-label="时间线筛选">
+        <div class="controls">
+          <label class="searchbox"><input id="search" type="search" placeholder="搜索学校或项目，例如 MIT、金融工程"></label>
+          <div class="chips" id="scopeChips">
+            <button class="chip active" data-scope="all">全部项目</button><button class="chip" data-scope="saved">仅收藏</button><button class="chip" data-scope="china">清北推免</button><button class="chip" data-scope="dual">双学位</button>
+          </div>
+          <button class="export" id="exportAll">导出未来节点</button>
+        </div>
+        <div class="controls" style="grid-template-columns:auto 1fr;margin-top:11px">
+          <div class="chips" id="statusChips"><button class="chip active" data-status="all">全部时间</button><button class="chip" data-status="future">只看未来</button><button class="chip" data-status="past">已过节点</button></div>
+          <div class="month-rail" id="monthRail"></div>
+        </div>
+      </section>
+      <div class="legend"><span><i class="symbol"></i>申请开放</span><span><i class="symbol deadline"></i>Deadline</span><span><i class="symbol assessment"></i>笔试 / 考核</span><span><i class="symbol pending"></i>日期待公布</span></div>
+      <section>
+        <div class="section-head"><div><h2>已确认时间轴</h2><p id="timelineCount"></p></div><p class="hint">橙色动态边框只标记最近的未处理节点。日期均来自当前站内已核验资料，提交前仍应打开官网复核。</p></div>
+        <div class="timeline" id="timeline"></div>
+      </section>
+      <section id="pendingSection">
+        <div class="section-head"><div><h2>待官网更新</h2><p id="pendingCount"></p></div><p class="hint">这些项目还没有可用于提醒的确定日期。保留官网原始状态，不用往年日期冒充新周期。</p></div>
+        <div class="pending-note"><b>为什么不直接放进时间轴？</b> “预计秋季”“分轮次待开放”等信息不包含可验证的日期，创建倒计时反而容易误导。更新为正式日期后，它会自动进入上方时间轴。</div>
+        <div class="pending-wrap" id="pending"></div>
+      </section>
+    </main>
+    <footer>日历文件在本机生成，不上传任何数据。离线网页关闭后无法主动弹出通知，因此建议把关键节点导入你常用的系统日历；导出的 Deadline 默认带 30 天、7 天和 1 天提醒。</footer>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="data.js"></script>
+  <script src="timeline.js"></script>
+</body>
+</html>

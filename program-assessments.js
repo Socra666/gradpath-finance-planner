@@ -1,0 +1,20 @@
+window.GRADPATH_ASSESSMENTS={
+101:{source:'https://mitsloan.mit.edu/mfin/admissions/how-to-apply',items:[['提交申请时｜视频题 1','预先录制个人故事，最长 90 秒；单次拍摄、不可剪辑，不加音乐或字幕，直接面对镜头自然表达。'],['提交申请时｜视频题 2','系统随机给出开放式问题，不是技术题；只有一次录制机会、不能重录，主要观察表达与沟通方式。'],['受邀后｜虚拟面试','录取必须经过面试：约 30 分钟数量能力评估 + 约 30 分钟一对一行为面试。数量评估细节随邀请邮件发送；行为部分关注团队、决策、解决问题、专业表现及英语。']]},
+102:{source:'https://som.yale.edu/programs/mms-asset-management/admissions/application-information',items:[['提交并付款后｜Kira 视频与写作','状态页开放 Kira：先可做不计分练习；正式部分为 2 道短视频口答 + 第 3 道在线文字回答，题目随机、接近常规面试题，提交后不能修改。需电脑、摄像头和稳定网络。'],['提交并付款后｜Behavioral Assessment','ETS 研究部门提供的约 25 分钟强迫选择式行为测评，衡量人际与自我管理能力；一次完成，不考专业知识，无需刷题。'],['受邀后｜面试','全年滚动发出邀请，约 30 分钟；它与 Kira 不是同一环节。收到邀请后再按邮件预约。']]},
+103:{source:'https://bcf.princeton.edu/academic-programs/master-in-finance/apply-for-the-master-in-finance-program/',items:[['全体申请者｜数学测评','Fall 2027 申请者统一在 2026 年 12 月 19 日 10:00 EST 参加。官网当前只确认时间与必须参加，未公开题型、平台和范围；应等待项目邮件。'],['审理与决定','项目表示将在 3 月 15 日前回复；录取者通常需在 4 月 15 日前答复。']]},
+106:{source:'https://www.sbs.ox.ac.uk/oxford-experience/coming-oxford/msc-financial-economics',items:[['材料初审后｜Kira 视频测评','部分进入下一阶段的申请者会被邀请完成 Kira Talent 视频测评。它属于申请评估环节；当期题数、准备时间、录制次数和截止日以邀请邮件为准。'],['准备重点','围绕攻读 MFE 的动机、金融与经济学准备、团队经历和职业目标做限时口头表达练习；不要背诵通用答案。']]},
+107:{source:'https://www.ox.ac.uk/admissions/graduate/courses/msc-mathematical-and-computational-finance',items:[['通常无面试','Oxford 当前官方课程页说明该项目通常不举行面试。数学准备度主要由课程、成绩、SOP 和推荐信判断。'],['书面材料重点','SOP 最多 1,000 词，需要证明数学知识、研究兴趣、动机及承受高强度抽象学习的能力。']]},
+111:{source:'https://www.london.edu/masters-degrees/masters-in-financial-analysis/apply?entry=true',items:[['初审后｜受邀虚拟面试','由 LBS 招生团队或校友进行，目前为线上形式；两类面试官采用相同标准。重点准备动机、团队、领导力、金融兴趣、职业目标和对 LBS 的具体理解。'],['候补阶段｜Kira','部分候补申请者会被邀请使用 Kira 视频平台接受进一步评估；这不是所有申请者的常规步骤。']]},
+301:{source:'https://mfe.haas.berkeley.edu/admissions/requirements',items:[['提交申请时｜Video Essay','需要摄像头和麦克风；回答最长 2 分钟，允许录制两次。应提前测试光线、声音与网络。'],['审理中｜可能面试','招生委员会可能通过面试进一步了解技能、准备缺口和项目匹配；是否受邀及形式以项目通知为准。']]},
+303:{source:'https://www.cmu.edu/mscf/admissions/apply.html',items:[['提交申请时｜书面与视频文书','除 2 道各最多 350 词的短文外，还需录制 90 秒视频，说明你如何获得过去某项学术/职业机会，以及该经历如何支持目标职业。'],['受邀后｜面试','仅由招生委员会邀请，可选到校或 Zoom。主要核实数学/计算准备、量化金融理解、职业目标、沟通和专业表现；通常约 15–30 分钟。']]},
+306:{items:[['提交后｜异步视频面试','项目申请包含异步视频环节。题目、准备时间、录制次数和截止日应以 Cornell 申请状态页当期说明为准；官网未披露的细节不作推断。']]},
+308:{source:'https://www.imperial.ac.uk/business-school/masters/risk-management/admissions/',items:[['入围后｜在线录制面试','短名单申请者通过学校视频平台录制并提交答案，通常整个流程约 20 分钟；用于补充书面材料，了解经历、动机、解决问题方式和未来目标。'],['决定与资格核验','项目按相应轮次公布决定；获得 offer 后还需完成学历资格核验并满足录取条件、支付押金。']]},
+309:{items:[['通过材料初筛后｜面试','HEC MIF 把面试列入选择流程。通常围绕项目动机、金融知识、职业目标和经历展开；当期平台、时长和面试官安排以邀请邮件为准。']]}
+,
+313:{source:'https://www.ox.ac.uk/admissions/graduate/courses/msc-law-and-finance',items:[['通常不举行面试','Oxford 当前课程页说明 MLF 通常不把面试作为录取流程。核心判断来自法律学术成绩、推荐信、法律写作样本和 300 词个人陈述。'],['Written Work','必须提交一篇最多 2,000 词的英文法律主题写作；重点评估论证、分析、表达和对法律问题的理解。']]},
+314:{source:'https://www.postgraduate.study.cam.ac.uk/courses/directory/lelempref/apply',items:[['分批审理','Land Economy 按批次审理 MPhil 申请；部分申请会在首轮评估后保留至后续批次再议，官方目标是在进入审理后约 12 周内完成初步评估。'],['研究摘要不是最终选题','申请表中的拟议研究题目与摘要用于展示想法，不要求在入学前锁定最终论文主题。']]},
+318:{source:'https://engineering.nyu.edu/academics/programs/financial-engineering-ms',items:[['提交申请时｜1 分钟视频','NYU Tandon 将 1-minute video 列为正式申请材料。具体题目、准备时间和录制规则应以申请系统当期说明为准。'],['材料核验','项目明确核对线代、概率、多元微积分、应用统计与编程准备；视频不能替代数量课程证据。']]},
+319:{source:'https://www.anderson.ucla.edu/degrees/master-of-financial-engineering/admissions/requirements',items:[['完成申请后｜受邀面试','UCLA MFE 面试仅按邀请进行。招生委员会会在材料完整后决定是否邀请，申请人不能自行预约。'],['准备重点','围绕量化项目、编程能力、两篇 Essay、职业目标与简历经历准备；每段经历都应能解释个人贡献和技术细节。']]},
+320:{source:'https://business.vanderbilt.edu/masters-in-finance/admissions/application-instructions/',items:[['提交申请时｜Video Essay','申请内视频回答用于观察自然表达和沟通能力，题目为较易进入的 small-talk 类型；系统会提供准备和录制说明。'],['材料初审后｜Kira 异步面试','面试为录取必要环节但只向部分完整申请者发出邀请；包含 4 道口头回答和 1 道书面回答，并提供练习机会。']]},
+322:{source:'https://qcf.gatech.edu/prospective-students/application-requirements',items:[['入围后｜Zoom 行为面试','有竞争力的申请者会受邀与项目 Associate Director 完成行为面试。'],['准备重点','复盘简历、量化课程、编程项目、研究/实习成果与职业目标；官方说明面试会覆盖项目、学术历史和个人经历。']]}
+};
