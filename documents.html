@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex">
+  <meta name="referrer" content="no-referrer">
+  <title>个人申请资料库｜GradPath</title>
+  <link rel="stylesheet" href="documents.css?v=20260816-1">
+</head>
+<body>
+  <div class="wrap">
+    <header><a class="brand" href="index.html"><i></i>GradPath</a><nav class="header-nav"><a href="index.html">项目列表</a><a href="timeline.html">申请时间线</a><a class="active" href="documents.html">个人资料库</a></nav></header>
+    <main>
+      <section class="hero"><div class="eyebrow">PRIVATE APPLICATION VAULT · DEVICE-LOCAL</div><h1>所有申请资料，<br>集中放好。</h1><p>个人总库保存通用材料，项目分库保存针对每个项目改写和准备的版本。分类、要求、版本和完成度放在一个界面里，不再靠文件名猜。</p></section>
+      <section class="privacy"><div class="privacy-icon">⌂</div><div><b>仅保存在当前浏览器，不上传到网站服务器</b><p>朋友打开同一网址看不到你的文件。换设备、无痕模式或清除网站数据后，资料不会自动同步，并可能丢失；重要原件请始终保留额外备份。</p></div><button class="persist" id="persistStorage">加强本机保存</button></section>
+      <div class="app-layout">
+        <aside class="sidebar"><button class="mode-btn" id="masterMode">个人总库<span>通用原件与主版本</span></button><button class="mode-btn" id="projectMode">项目分库<span>64 个项目的针对性材料</span></button><div class="side-divider"></div><div class="side-label">总库分类</div><div class="cat-nav" id="categoryNav"></div></aside>
+        <section class="content" id="content" aria-live="polite"></section>
+      </div>
+    </main>
+    <footer>GradPath 资料库采用浏览器本地存储。公开 GitHub Pages 只包含功能代码，不包含你上传的任何文件。涉及护照、身份证、银行证明等敏感材料时，请同时保留离线加密备份。</footer>
+  </div>
+  <input id="fileInput" type="file" multiple hidden>
+  <dialog id="previewDialog"><div class="preview-head"><b id="previewTitle"></b><button id="previewClose" aria-label="关闭">×</button></div><div class="preview-body" id="previewBody"></div></dialog>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="data.js"></script>
+  <script src="application-requirements.js"></script>
+  <script src="document-vault.js?v=20260816-1"></script>
+</body>
+</html>
