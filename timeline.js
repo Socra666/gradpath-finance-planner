@@ -2,7 +2,8 @@
   'use strict';
   const programs=window.GRADPATH_PROGRAMS||[];
   const DAY=86400000;
-  const state={scope:'all',status:'all',query:'',saved:new Set(readJSON('gradpath-saved',[])),watched:new Set(readJSON('gradpath-timeline-watch',[])),done:new Set(readJSON('gradpath-timeline-done',[]))};
+  const REMINDER_DAYS=[30,25,20,15,10,5,1];
+  const state={scope:'all',status:'all',query:'',saved:new Set(readJSON('gradpath-saved',[])),watched:new Set(readJSON('gradpath-timeline-watch',[])),done:new Set(readJSON('gradpath-timeline-done',[])),notified:new Set(readJSON('gradpath-deadline-notified',[]))};
   const $=s=>document.querySelector(s);
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
@@ -57,6 +58,11 @@
   }
   function uniquePrograms(list){const m=new Map();list.forEach(p=>m.set(p.id,p));return [...m.values()]}
   const allExact=exactEvents();
+  const requestedReminderId=Number(new URLSearchParams(location.search).get('remind'))||0;
+  const requestedReminderProgram=programs.find(p=>p.id===requestedReminderId);
+  const requestedReminderGroups=requestedReminderProgram?groupedEvents(allExact.filter(e=>e.kind==='deadline'&&e.program.id===requestedReminderId&&e.date.getTime()>=Date.now())):[];
+  requestedReminderGroups.forEach(g=>state.watched.add(g.key));
+  if(requestedReminderGroups.length)saveSet('gradpath-timeline-watch',state.watched);
 
   function inScope(p){
     if(state.scope==='saved'&&!state.saved.has(p.id))return false;
@@ -98,7 +104,7 @@
     if(g.kind==='deadline')return g.parsed.hasTime?(d[0]||'完成在线申请与材料提交。'):'官网资料已确认日期，但站内未保存具体时刻；请在当日前再次核对。';
     return d[0]||'按项目通知完成相应环节。';
   }
-  function render(){renderHero();renderStats();renderRail();renderTimeline();renderPending();updateExport()}
+  function render(){renderHero();renderStats();renderReminders();renderRail();renderTimeline();renderPending();updateExport()}
   function renderHero(){
     const future=groupedEvents(allExact.filter(e=>e.date.getTime()>=Date.now()&&!state.done.has(e.key)));
     const next=future[0];
@@ -109,6 +115,30 @@
   function renderStats(){
     const future=groupedEvents(allExact.filter(e=>e.date.getTime()>=Date.now())),futureDeadlines=future.filter(e=>e.kind==='deadline'),pending=programs.filter(needsOfficialDate),done=[...state.done].length;
     $('#stats').innerHTML=`<div class="stat"><small>未来确定节点</small><strong>${future.length}</strong><em>组</em></div><div class="stat"><small>其中 Deadline</small><strong>${futureDeadlines.length}</strong><em>组</em></div><div class="stat"><small>日期待公布</small><strong>${pending.length}</strong><em>项目</em></div><div class="stat"><small>已处理节点</small><strong>${done}</strong><em>组</em></div>`;
+  }
+  function futureDeadlineGroups(){return groupedEvents(allExact.filter(e=>e.kind==='deadline'&&e.date.getTime()>=Date.now()))}
+  function watchedDeadlineGroups(){return futureDeadlineGroups().filter(g=>state.watched.has(g.key))}
+  function daysUntil(date){return Math.max(0,Math.ceil((date.getTime()-Date.now())/DAY))}
+  function reminderBand(days){return REMINDER_DAYS.find(x=>days>=Math.max(1,x-4)&&days<=x)||null}
+  function reminderDetailUrl(g){return new URL(g.programs.length===1?`program.html?id=${encodeURIComponent(g.programs[0].id)}`:'timeline.html',location.href).href}
+  function renderReminders(){
+    const supported='Notification' in window,permission=supported?Notification.permission:'unsupported',watched=watchedDeadlineGroups(),soon=watched.filter(g=>daysUntil(g.date)<=30);
+    const status=permission==='granted'?`电脑弹窗已允许 · 已关注 ${watched.length} 个未来 Deadline`:permission==='denied'?`电脑弹窗已被浏览器阻止 · 可使用系统日历提醒`:supported?`尚未允许电脑弹窗 · 已关注 ${watched.length} 个未来 Deadline`:'当前浏览器不支持网页通知 · 请使用系统日历';
+    $('#reminderStatus').textContent=status;
+    $('#enableNotifications').textContent=permission==='granted'?'✓ 电脑弹窗已开启':permission==='denied'?'浏览器已阻止弹窗':'允许电脑弹窗';
+    $('#enableNotifications').disabled=!supported||permission==='denied';
+    const deadlines=futureDeadlineGroups();$('#exportReminders').disabled=!deadlines.length;$('#exportReminders').textContent=deadlines.length?`导出全部 Deadline · ${deadlines.length}`:'暂无未来 Deadline';
+    $('#reminderInbox').innerHTML=soon.length?soon.slice(0,6).map(g=>{const d=daysUntil(g.date),p=g.programs[0];return `<div class="reminder-item"><div><b>${esc(groupTitle(g))}</b><small>距离截止 ${d} 天 · ${esc(displayTime(g))}</small></div><a href="program.html?id=${encodeURIComponent(p.id)}">查看详情与材料 →</a></div>`}).join(''):(watched.length?'<div class="reminder-item"><div><b>已关注的 Deadline 均在 30 天以外</b><small>进入 30 天提醒期后会显示在这里。</small></div></div>':'<div class="reminder-item"><div><b>还没有开启项目提醒</b><small>在下方 Deadline 卡片点击“开启提醒”。</small></div></div>');
+  }
+  async function enableBrowserNotifications(){
+    if(!('Notification' in window)){toast('当前浏览器不支持网页通知，请导出系统日历');return}
+    const permission=await Notification.requestPermission();renderReminders();
+    if(permission==='granted'){toast('电脑弹窗已开启；网页打开时会检查到期提醒');checkBrowserReminders(true)}
+    else toast('未获得通知权限，可改用系统日历提醒');
+  }
+  function checkBrowserReminders(force=false){
+    if(!('Notification' in window)||Notification.permission!=='granted')return;
+    watchedDeadlineGroups().forEach(g=>{const days=daysUntil(g.date),band=reminderBand(days);if(!band)return;const token=`${g.key}:${band}`,recent=state.notified.has(token);if(recent&&!force)return;const p=g.programs[0],n=new Notification(`${p.school} · 距离 Deadline 还有 ${days} 天`,{body:`${p.name}\n点击查看项目详解、申请材料和准备建议。`,tag:`gradpath-${token}`,renotify:false});n.onclick=()=>{window.focus();location.href=`program.html?id=${encodeURIComponent(p.id)}`};state.notified.add(token);saveSet('gradpath-deadline-notified',state.notified)});
   }
   function renderRail(){
     const groups=groupedEvents(filteredEvents()),months=new Map();
@@ -128,7 +158,8 @@
   function momentHTML(g,isNext){
     const watched=state.watched.has(g.key),done=state.done.has(g.key),visible=g.programs.slice(0,4),rest=g.programs.slice(4),urgent=urgency(g.date);
     const links=list=>`<div class="program-list">${list.map(p=>`<a class="program-link" href="program.html?id=${encodeURIComponent(p.id)}">${esc(`${p.school} · ${p.name}`)}</a>`).join('')}</div>`;
-    return `<article class="moment ${g.kind} ${isNext?'is-next':''} ${done?'done':''}" data-key="${esc(g.key)}"><div class="moment-grid"><div class="date-tile"><b>${pad(g.parsed.d)}</b><span>${esc(weekday(g.parsed))}<br>${g.parsed.hasTime?`${pad(g.parsed.h)}:${pad(g.parsed.min)}`:'时间待核'}</span></div><div><div class="type-line"><span class="type-pill">${esc(typeName(g.kind))}</span>${urgent&&g.date>=Date.now()?`<span class="urgency">${esc(urgent)}</span>`:''}${g.programs.length>1?`<span class="type-pill">合并 ${g.programs.length} 项</span>`:''}</div><h3>${esc(groupTitle(g))}</h3><p class="moment-desc">${esc(displayTime(g))}<br>${esc(groupDescription(g))}</p>${links(visible)}${rest.length?`<details class="more-programs"><summary>再查看 ${rest.length} 个同日项目</summary>${links(rest)}</details>`:''}</div><div class="actions"><button class="action watch ${watched?'on':''}" data-watch="${esc(g.key)}">${watched?'★ 已关注':'☆ 关注'}</button><button class="action done-btn ${done?'on':''}" data-done="${esc(g.key)}">${done?'✓ 已处理':'标记完成'}</button><button class="action calendar" data-calendar="${esc(g.key)}">加入日历</button></div></div></article>`;
+    const watchLabel=g.kind==='deadline'?(watched?'🔔 提醒已开启':'🔔 开启提醒'):(watched?'★ 已关注':'☆ 关注');
+    return `<article class="moment ${g.kind} ${isNext?'is-next':''} ${done?'done':''}" data-key="${esc(g.key)}"><div class="moment-grid"><div class="date-tile"><b>${pad(g.parsed.d)}</b><span>${esc(weekday(g.parsed))}<br>${g.parsed.hasTime?`${pad(g.parsed.h)}:${pad(g.parsed.min)}`:'时间待核'}</span></div><div><div class="type-line"><span class="type-pill">${esc(typeName(g.kind))}</span>${urgent&&g.date>=Date.now()?`<span class="urgency">${esc(urgent)}</span>`:''}${g.programs.length>1?`<span class="type-pill">合并 ${g.programs.length} 项</span>`:''}</div><h3>${esc(groupTitle(g))}</h3><p class="moment-desc">${esc(displayTime(g))}<br>${esc(groupDescription(g))}</p>${links(visible)}${rest.length?`<details class="more-programs"><summary>再查看 ${rest.length} 个同日项目</summary>${links(rest)}</details>`:''}</div><div class="actions"><button class="action watch ${watched?'on':''}" data-watch="${esc(g.key)}">${watchLabel}</button><button class="action done-btn ${done?'on':''}" data-done="${esc(g.key)}">${done?'✓ 已处理':'标记完成'}</button><button class="action calendar" data-calendar="${esc(g.key)}">加入日历</button></div></div></article>`;
   }
   function renderPending(){
     const list=pendingPrograms();$('#pendingCount').textContent=`当前显示 ${list.length} 个日期尚未完全公布的项目`;
@@ -138,9 +169,9 @@
   function icsDate(date){return date.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'')}
   function icsEscape(s){return String(s||'').replace(/\\/g,'\\\\').replace(/\n/g,'\\n').replace(/,/g,'\\,').replace(/;/g,'\\;')}
   function eventICS(g){
-    const start=g.date,end=new Date(start.getTime()+60*60000),alarms=g.kind==='deadline'?['-P30D','-P7D','-P1D']:['-P7D','-P1D'];
-    const names=g.programs.map(p=>p.name).join('；'),url=g.programs.length===1?g.programs[0].url:'';
-    return ['BEGIN:VEVENT',`UID:${g.key}@gradpath.local`,`DTSTAMP:${icsDate(new Date())}`,`DTSTART:${icsDate(start)}`,`DTEND:${icsDate(end)}`,`SUMMARY:${icsEscape(groupTitle(g))}`,`DESCRIPTION:${icsEscape(`${names}\n${groupDescription(g)}\n请在提交前再次核对官网。`)}`,...(url?[`URL:${url}`]:[]),...alarms.flatMap(x=>['BEGIN:VALARM',`TRIGGER:${x}`,'ACTION:DISPLAY',`DESCRIPTION:${icsEscape(groupTitle(g))} 提醒`,'END:VALARM']),'END:VEVENT'].join('\r\n');
+    const start=g.date,end=new Date(start.getTime()+60*60000),alarms=g.kind==='deadline'?REMINDER_DAYS:[7,1];
+    const names=g.programs.map(p=>p.name).join('；'),url=reminderDetailUrl(g);
+    return ['BEGIN:VEVENT',`UID:${g.key}@gradpath.local`,`DTSTAMP:${icsDate(new Date())}`,`DTSTART:${icsDate(start)}`,`DTEND:${icsDate(end)}`,`SUMMARY:${icsEscape(groupTitle(g))}`,`DESCRIPTION:${icsEscape(`${names}\n${groupDescription(g)}\n点击链接查看项目详解、材料要求与申请流程。\n请在提交前再次核对官网。`)}`,`URL:${url}`,...alarms.flatMap(days=>['BEGIN:VALARM',`TRIGGER:-P${days}D`,'ACTION:DISPLAY',`DESCRIPTION:${icsEscape(`${groupTitle(g)} · 距离节点还有 ${days} 天，点击查看项目详情与材料要求`)}`,'END:VALARM']),'END:VEVENT'].join('\r\n');
   }
   function downloadICS(groups,name){
     const body=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//GradPath//Application Timeline//ZH-CN','CALSCALE:GREGORIAN','METHOD:PUBLISH',...groups.map(eventICS),'END:VCALENDAR'].join('\r\n');
@@ -155,10 +186,17 @@
   $('#monthRail').addEventListener('click',e=>{const b=e.target.closest('[data-month]');if(b)$(`#month-${b.dataset.month}`)?.scrollIntoView({behavior:'smooth',block:'start'})});
   $('#timeline').addEventListener('click',e=>{
     const watch=e.target.closest('[data-watch]'),done=e.target.closest('[data-done]'),cal=e.target.closest('[data-calendar]');
-    if(watch){const k=watch.dataset.watch;state.watched.has(k)?state.watched.delete(k):state.watched.add(k);saveSet('gradpath-timeline-watch',state.watched);render();return}
+    if(watch){const k=watch.dataset.watch;state.watched.has(k)?state.watched.delete(k):state.watched.add(k);saveSet('gradpath-timeline-watch',state.watched);render();checkBrowserReminders();return}
     if(done){const k=done.dataset.done;state.done.has(k)?state.done.delete(k):state.done.add(k);saveSet('gradpath-timeline-done',state.done);render();return}
     if(cal){const g=findGroup(cal.dataset.calendar);if(g)downloadICS([g],`GradPath-${g.parsed.y}${pad(g.parsed.mo)}${pad(g.parsed.d)}.ics`)}
   });
   $('#exportAll').addEventListener('click',()=>{const list=groupedEvents(filteredEvents().filter(e=>e.date.getTime()>=Date.now()));if(list.length)downloadICS(list,'GradPath-未来申请节点.ics')});
+  $('#enableNotifications').addEventListener('click',enableBrowserNotifications);
+  $('#exportReminders').addEventListener('click',()=>{const list=futureDeadlineGroups();if(list.length)downloadICS(list,'GradPath-Deadline-30天起每5天提醒.ics')});
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)checkBrowserReminders()});
+  window.addEventListener('focus',()=>checkBrowserReminders());
+  setInterval(()=>checkBrowserReminders(),60*60*1000);
   render();
+  checkBrowserReminders();
+  if(requestedReminderGroups.length)toast(`已为 ${requestedReminderProgram.name} 开启 Deadline 提醒`);
 })();
