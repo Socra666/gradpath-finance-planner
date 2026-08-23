@@ -7,6 +7,7 @@ window.GRADPATH_ASSESSMENTS={
 111:{source:'https://www.london.edu/masters-degrees/masters-in-financial-analysis/apply?entry=true',items:[['初审后｜受邀虚拟面试','由 LBS 招生团队或校友进行，目前为线上形式；两类面试官采用相同标准。重点准备动机、团队、领导力、金融兴趣、职业目标和对 LBS 的具体理解。'],['候补阶段｜Kira','部分候补申请者会被邀请使用 Kira 视频平台接受进一步评估；这不是所有申请者的常规步骤。']]},
 301:{source:'https://mfe.haas.berkeley.edu/admissions/requirements',items:[['提交申请时｜Video Essay','需要摄像头和麦克风；回答最长 2 分钟，允许录制两次。应提前测试光线、声音与网络。'],['审理中｜可能面试','招生委员会可能通过面试进一步了解技能、准备缺口和项目匹配；是否受邀及形式以项目通知为准。']]},
 303:{source:'https://www.cmu.edu/mscf/admissions/apply.html',items:[['提交申请时｜书面与视频文书','除 2 道各最多 350 词的短文外，还需录制 90 秒视频，说明你如何获得过去某项学术/职业机会，以及该经历如何支持目标职业。'],['受邀后｜面试','仅由招生委员会邀请，可选到校或 Zoom。主要核实数学/计算准备、量化金融理解、职业目标、沟通和专业表现；通常约 15–30 分钟。']]},
+304:{source:'https://math-finance.cims.nyu.edu/admissions/',items:[['提交申请时｜视频材料','从官网列出的 2 个题目中选择 1 个作答，视频总长不超过 5 分钟。它是正式申请材料，应独立完成并清楚展示动机、表达与思考。'],['标化与书面材料','GRE General 必交，GMAT 不接受；数量学科 Subject GRE 仅受鼓励。Statement of Purpose 按 3 个主题分别作答，每个最多 150 词。']]},
 306:{items:[['提交后｜异步视频面试','项目申请包含异步视频环节。题目、准备时间、录制次数和截止日应以 Cornell 申请状态页当期说明为准；官网未披露的细节不作推断。']]},
 308:{source:'https://www.imperial.ac.uk/business-school/masters/risk-management/admissions/',items:[['入围后｜在线录制面试','短名单申请者通过学校视频平台录制并提交答案，通常整个流程约 20 分钟；用于补充书面材料，了解经历、动机、解决问题方式和未来目标。'],['决定与资格核验','项目按相应轮次公布决定；获得 offer 后还需完成学历资格核验并满足录取条件、支付押金。']]},
 309:{items:[['通过材料初筛后｜面试','HEC MIF 把面试列入选择流程。通常围绕项目动机、金融知识、职业目标和经历展开；当期平台、时长和面试官安排以邀请邮件为准。']]}
@@ -16,5 +17,6 @@ window.GRADPATH_ASSESSMENTS={
 318:{source:'https://engineering.nyu.edu/academics/programs/financial-engineering-ms',items:[['提交申请时｜1 分钟视频','NYU Tandon 将 1-minute video 列为正式申请材料。具体题目、准备时间和录制规则应以申请系统当期说明为准。'],['材料核验','项目明确核对线代、概率、多元微积分、应用统计与编程准备；视频不能替代数量课程证据。']]},
 319:{source:'https://www.anderson.ucla.edu/degrees/master-of-financial-engineering/admissions/requirements',items:[['完成申请后｜受邀面试','UCLA MFE 面试仅按邀请进行。招生委员会会在材料完整后决定是否邀请，申请人不能自行预约。'],['准备重点','围绕量化项目、编程能力、两篇 Essay、职业目标与简历经历准备；每段经历都应能解释个人贡献和技术细节。']]},
 320:{source:'https://business.vanderbilt.edu/masters-in-finance/admissions/application-instructions/',items:[['提交申请时｜Video Essay','申请内视频回答用于观察自然表达和沟通能力，题目为较易进入的 small-talk 类型；系统会提供准备和录制说明。'],['材料初审后｜Kira 异步面试','面试为录取必要环节但只向部分完整申请者发出邀请；包含 4 道口头回答和 1 道书面回答，并提供练习机会。']]},
-322:{source:'https://qcf.gatech.edu/prospective-students/application-requirements',items:[['入围后｜Zoom 行为面试','有竞争力的申请者会受邀与项目 Associate Director 完成行为面试。'],['准备重点','复盘简历、量化课程、编程项目、研究/实习成果与职业目标；官方说明面试会覆盖项目、学术历史和个人经历。']]}
+322:{source:'https://qcf.gatech.edu/prospective-students/application-requirements',items:[['入围后｜Zoom 行为面试','有竞争力的申请者会受邀与项目 Associate Director 完成行为面试。'],['准备重点','复盘简历、量化课程、编程项目、研究/实习成果与职业目标；官方说明面试会覆盖项目、学术历史和个人经历。']]},
+434:{source:'https://yzbm.tsinghua.edu.cn/publish/s01/s0101/detail/a1cd55c7-adee-4744-8a5b-9842892364d7?yxsdm=060',items:[['2026年8月23日 10:00–11:00｜资格审查','按五道口通知携带/提交规定材料完成资格审查；不通过者不得参加综合考核。'],['综合考核｜专业笔试','笔试 120 分钟，满分 100 分、60 分及格；笔试成绩不计入最终总成绩，但不及格者不予录取。'],['综合考核｜面试','每位考生面试不少于 20 分钟；最终综合考核成绩按面试成绩计算。具体地点、分组和材料以学院通知为准。']]}
 };

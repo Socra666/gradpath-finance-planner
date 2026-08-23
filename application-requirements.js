@@ -2,7 +2,7 @@
   const R={}, HARD='官网硬性要求', INFO='官网说明', PLAN='本站规划建议（非校方门槛）', THIRD='第三方数据库（仅供交叉参考）';
   const clone=x=>JSON.parse(JSON.stringify(x));
   const add=(ids,data)=>ids.forEach(id=>R[id]=clone(Object.assign({
-    checked:'2026-08-15',
+    checked:'2026-08-23',
     transcript:{headline:'所有就读院校成绩单',detail:'上传完整成绩记录；非英文材料通常需要英文翻译。录取后是否寄送正式件，以项目通知为准。',level:INFO},
     cv:{headline:'简历 / CV',detail:'写清起止月份、职责、个人贡献与可核验成果；严格遵守项目页数要求。',level:INFO},
     writing:[],extra:[],sources:[]
@@ -49,8 +49,8 @@
     tests:{headline:'不要求 GRE / GMAT',detail:'该项目采用“先修课达标后申请”的绩效型入学，不以 GRE/GMAT 作为准入材料。',level:HARD},
     writing:[{name:'正式学位申请材料',limit:'完成第 3 门入学课程期间申请',focus:'按 HES 学位申请系统填写；它不是传统商学院 MFin 的一轮式文书申请。',level:INFO}],
     references:{headline:'入学课程阶段不要求传统推荐信包',detail:'核心门槛是完成指定经济、金融、统计入学课程并达到单科 B 以上、Harvard 累计 GPA 至少 3.0。',level:HARD},
-    extra:[{name:'Earn-your-way-in',detail:'先注册并完成 3 门指定入学课程，在第 3 门课程期间申请学位。',level:HARD}],
-    sources:[{url:'https://extension.harvard.edu/academics/programs/finance-graduate-program/finance-degree-requirements/',label:'Harvard Extension Finance Degree Requirements',type:HARD}]
+    extra:[{name:'Earn-your-way-in',detail:'先注册并完成 3 门指定入学课程，在第 3 门课程期间申请学位。',level:HARD},{name:'正式申请窗口',detail:'第 3 门入学课程在夏/秋/春学期完成时，对应申请窗口分别为 7月1日–8月1日、11月1日–12月1日、3月15日–4月15日。',level:HARD},{name:'项目结构',detail:'项目共 12 门课、48 学分；当前说明为 11 门可在线完成，并含一次校内学习要求。',level:INFO}],
+    sources:[{url:'https://extension.harvard.edu/academics/programs/finance-graduate-program/finance-degree-requirements/',label:'Harvard Extension Finance Degree Requirements',type:HARD},{url:'https://extension.harvard.edu/registration-admissions/degree-program-admissions/when-apply/',label:'Harvard Extension Degree Application Windows',type:HARD}]
   });
   add([105],{
     language:{headline:'IELTS 7.0；TOEFL 旧制 90 / 新制 4.5',detail:'Stanford 研究生院统一最低要求；符合英语母语、全英语学位或规定年限英语工作/学习经历者可豁免。',level:HARD},
@@ -97,7 +97,7 @@
     tests:{headline:'GMAT / GRE 可选',detail:'学术成绩边缘或非金融背景时可增强证明力；官网无最低分。'+fPlan,level:INFO},
     writing:[{name:'申请陈述',limit:'当期申请系统显示具体字数',focus:'重大职业挑战/成就、个人动机、关键技能、为什么现在需要 Cambridge MFin。',level:HARD}],
     references:{headline:'2 封推荐信',detail:'通常一封来自当前直属经理/主管，另一封可来自学术推荐人；须能评价金融工作成果与发展潜力。',level:HARD},
-    extra:[{name:'工作经验',detail:'至少 2 年毕业后金融全职经验，理想状态包含前台金融岗位。',level:HARD},{name:'在线面试',detail:'入围后与项目教师在线面试，重点核验经历、动机和职业判断。',level:INFO}],
+    extra:[{name:'工作经验',detail:'至少 2 年毕业后金融全职经验，理想状态包含前台金融岗位。',level:HARD},{name:'在线面试',detail:'入围后与项目教师在线面试，重点核验经历、动机和职业判断。',level:INFO},{name:'滚动录取与最终日',detail:'2027 entry 最终申请与推荐信截止为 2027年5月31日；项目滚动审理且可能提前满位，应显著早于最终日提交。',level:HARD}],
     sources:[{url:'https://www.jbs.cam.ac.uk/masters-degrees/master-of-finance/apply/',label:'Cambridge MFin Apply',type:HARD}]
   });
   add([111],{
@@ -117,14 +117,17 @@
     cv:{headline:'1 页简历',detail:'重点展示毕业后金融工作经验、晋升与可量化业务影响。',level:HARD},
     sources:[{url:'https://www.london.edu/masters-degrees/masters-in-finance-full-time/apply?entry=true',label:'LBS MiF Apply',type:HARD}]
   });
-  add([113,114,115],{
+  add([113,114,115,116],{
     language:{headline:'IELTS 6.0，单项不低于 5.5；TOEFL 旧制 80 / 新制 4.5',detail:'成绩通常须在入学当年 9 月 1 日前两年内取得；港大商学院不接受部分家庭版/单项重考形式，按当年页面核对。',level:HARD},
     tests:{headline:'GMAT / GRE 可选',detail:'好成绩会在边缘或竞争性申请中起正面作用；官网无最低分。金融科技/量化取向可参考 Quant 165–168+，但不是校方门槛。',level:INFO},
     writing:[{name:'Personal Statement',limit:'官网公开页未列统一字数',focus:'项目动机、相关课程/实习、职业目标及为何选择港大与香港；按系统字符限制完成。',level:HARD}],
     references:{headline:'2 位推荐人，至少 1 位学术推荐人',detail:'学术推荐人需使用可核验的院校官方主页/邮箱；推荐内容应具体说明课程表现与分析能力。',level:HARD},
-    extra:[{name:'实习 / 工作证明',detail:'提交有效的实习证明或最近一份全职工作证明；职业资格证书可选。',level:HARD},{name:'录制视频',detail:'学校可能要求录制 admission video，题目与时间窗以申请系统通知为准。',level:INFO},{name:'申请费与补件',detail:'2027 intake 申请费为 HK$780；FAQ 要求在所选轮次截止后 2 个工作日内完成系统指定文件提交。',level:HARD},{name:'2027 学费与留位费',detail:'MFin、MFinTech 与 Master of Wealth Management 当前公布学费均为 HK$508,000，首笔留位费 HK$169,000；以录取通知和缴费页面为准。',level:INFO}],
+    extra:[{name:'实习 / 工作证明',detail:'提交有效的实习证明或最近一份全职工作证明；职业资格证书可选。',level:HARD},{name:'录制视频',detail:'学校可能要求录制 admission video，题目与时间窗以申请系统通知为准。',level:INFO},{name:'申请费与补件',detail:'2027 intake 申请费为 HK$780；FAQ 要求在所选轮次截止后 2 个工作日内完成系统指定文件提交。',level:HARD},{name:'2027 学费与留位费',detail:'MFin、MFinTech、Master of Wealth Management 与 Master of Family Wealth Management 当前公布学费均为 HK$508,000，首笔留位费 HK$169,000；以录取通知和缴费页面为准。',level:INFO}],
     sources:[{url:'https://masters.hkubs.hku.hk/admissions/',label:'HKU Business School Masters Admissions',type:HARD}]
   });
+  R[116].writing=[{name:'指定短文',limit:'约 300 词',focus:'回答“如果你可以成为一位家人一天，你会选择谁，为什么？”；用具体观察体现家族、责任、代际或价值观理解。',level:HARD},{name:'奖学金陈述（可选）',limit:'最多 300 词',focus:'只有申请奖学金时提交，说明匹配理由、贡献与需要，不重复主短文。',level:INFO}];
+  R[116].references={headline:'2 位推荐人；至少 1 位学术推荐人',detail:'学术推荐人需提供所在大学的官方个人主页网址，并使用可核验的院校身份信息。',level:HARD};
+  R[116].sources=[{url:'https://masters.hkubs.hku.hk/our-programmes/master-of-family-wealth-management/',label:'HKU Master of Family Wealth Management',type:HARD},{url:'https://masters.hkubs.hku.hk/admissions/',label:'HKU Business School Masters Admissions',type:HARD}];
 
   add([201],{
     language:{headline:'分别满足 Yale MBA 与 Asset Management 的英语规则',detail:'AM 对符合条件的非英语母语申请人要求 TOEFL/IELTS/DET，但不公布最低分；MBA 端按当期申请说明。',level:HARD},
@@ -196,10 +199,11 @@
   });
   add([304],{
     language:{headline:'TOEFL 低于 100 通常不建议申请；IELTS 也接受',detail:'官网未单列 IELTS 最低分；英语豁免按 NYU GSAS 规则。',level:INFO},
-    tests:{headline:'GRE Mathematics Subject Test 预期提交；GRE General 不要求也不接受',detail:'若确实无法参加数学专项考试，需随申请附简短说明。',level:HARD},
-    writing:[{name:'Statement of Purpose',limit:'按 NYU GSAS 系统',focus:'数学成熟度、金融数学兴趣、课程/研究/项目准备与职业方向。',level:HARD}],
-    references:{headline:'通常 3 封推荐信',detail:'官方强烈建议至少 2 封来自数学或科学教师，具体评价理论和解题能力。',level:INFO},
-    sources:[{url:'https://math.nyu.edu/dynamic/graduate/ms-gsas/admission/',label:'NYU Mathematics MS Admission',type:HARD},quantNet]
+    tests:{headline:'GRE General 必交；GMAT 不接受',detail:'数学、物理或其他数量学科的 Subject GRE 受到鼓励但非必交。官网说明多数录取者 GRE Quant 高于第 90 百分位；这是画像，不是最低线。',level:HARD},
+    writing:[{name:'Statement of Purpose 三个主题',limit:'每个主题最多 150 词',focus:'分别按系统题目说明数量准备、项目匹配与职业方向，避免把三段写成重复的通用 PS。',level:HARD},{name:'Personal Statement（可选）',limit:'按 NYU GSAS 系统',focus:'只补充主材料没有呈现的个人背景、挑战或共同体贡献。',level:INFO},{name:'Video Submission',limit:'不超过 5 分钟；从 2 个题目中选 1 个',focus:'按当期题目独立录制，清楚展示金融数学动机、表达和思考过程。',level:HARD}],
+    references:{headline:'3 封推荐信',detail:'优先来自能具体评价高阶数学、概率/统计、计算与研究/项目能力的教师或主管。',level:HARD},
+    extra:[{name:'申请费',detail:'当前申请费为 US$150；缴费和全部材料到齐后申请才完整。',level:HARD}],
+    sources:[{url:'https://math-finance.cims.nyu.edu/admissions/',label:'NYU Mathematics in Finance Admissions',type:HARD},quantNet]
   });
   add([305],{
     language:{headline:'IELTS 7.0；TOEFL 90',detail:'这是官网最低分，项目同时说明更高分会更有竞争力。',level:HARD},
@@ -211,11 +215,11 @@
   });
   add([306],{
     language:{headline:'IELTS 7.5；TOEFL 旧制 105（并有单项要求）',detail:'Cornell Engineering 的统一要求可能随 TOEFL 新制更新；提交前核对当期研究生院换算表。',level:HARD},
-    tests:{headline:'当前周期 GRE 不要求',detail:'若下一周期政策变化，以 ORIE MEng 页面为准；不要主动送无入口的成绩。',level:INFO},
-    writing:[{name:'Academic Statement of Purpose',limit:'通常约 1–1.5 页；以系统为准',focus:'ORIE/金融工程学术准备、目标与课程资源匹配。',level:HARD},{name:'Personal Statement',limit:'按 Cornell Graduate School 系统',focus:'个人经历、视角、挑战和对共同体的贡献。',level:HARD}],
-    references:{headline:'2 封必需，3 封更佳',detail:'至少一封应能评价概率、优化、统计或计算能力。',level:INFO},
-    extra:[{name:'异步视频',detail:'申请系统可能包含录制式视频问题，按当期提示完成。',level:INFO}],
-    sources:[{url:'https://www.orie.cornell.edu/orie/programs/meng-degree-ithaca/admissions',label:'Cornell ORIE MEng Admissions',type:HARD},quantNet]
+    tests:{headline:'GRE 或 GMAT 必交；官方偏好 GRE',detail:'当前 ORIE MEng Ithaca 要求测试成绩，GRE 是首选。官网未公布统一最低分；金融工程方向应重点证明 Quant 水平。',level:HARD},
+    writing:[{name:'Academic Statement of Purpose',limit:'最多 1,000 词',focus:'ORIE/金融工程学术准备、目标与课程资源匹配。',level:HARD},{name:'Personal Statement',limit:'最多 1,000 词',focus:'个人经历、视角、挑战和对共同体的贡献。',level:HARD}],
+    references:{headline:'2 封必交，3 封更佳',detail:'至少一封应能具体评价概率、优化、统计或计算能力。',level:HARD},
+    extra:[{name:'异步视频面试',detail:'在申请截止后由项目发送并要求完成；按邮件中的平台、准备时间和截止日独立作答。',level:HARD}],
+    sources:[{url:'https://www.duffield.cornell.edu/orie/meng/meng-admissions-requirements-ithaca/',label:'Cornell ORIE MEng Admissions Requirements',type:HARD},quantNet]
   });
   add([307],{
     language:{headline:'LSE Standard：IELTS 7.0、四项均 6.5',detail:'TOEFL 旧制 100，R23/L22/W24/S22；新制换算及豁免按 2026/27 英语页。',level:HARD},
@@ -296,7 +300,7 @@
   });
   add([317],{
     language:{headline:'IELTS 7.5；TOEFL 旧制 100 / 新制 5.5',detail:'Columbia GSAS 最低要求；也接受 DET 等当期列明考试。',level:HARD},
-    tests:{headline:'GRE General：不要求',detail:'Columbia GSAS 当前项目页将 GRE General 标为 “No”；不要为本项目额外送 GRE/GMAT。',level:HARD},
+    tests:{headline:'GRE / GMAT 非必交，但官方强烈建议；GRE 更受偏好',detail:'项目允许不交测试成绩，但明确表示提交 GRE/GMAT 可增强评估并偏好 GRE；不要把“非必交”误读为“不接收”。',level:INFO},
     writing:[{name:'Statement of Academic Purpose',limit:'通常最多 1,000 词',focus:'开头明确主要目标，并说明数量课程、金融数学兴趣与 Columbia 资源匹配。',level:INFO},{name:'Personal Statement',limit:'按 GSAS 系统',focus:'个人经历、视角以及如何为学术共同体作出贡献。',level:HARD}],
     references:{headline:'3 封推荐信；至少 2 封学术推荐',detail:'重点评价高阶数学、理论理解和解决问题能力。',level:HARD},
     sources:[{url:'https://www.gsas.columbia.edu/content/mathematics-finance',label:'Columbia GSAS Mathematics of Finance',type:HARD},quantNet]
@@ -320,7 +324,7 @@
     tests:{headline:'GMAT / GRE 可选',detail:'无最低分。金融硕士更看整体学术、实习与职业动机；如提交，本站建议 GRE 325+ 或 GMAT Focus 655+。',level:INFO},
     writing:[{name:'Personal Statement',limit:'当期申请系统显示',focus:'申请目的、职业目标与 Vanderbilt MSF 的具体匹配。',level:HARD},{name:'Optional Statement',limit:'按系统',focus:'解释成绩异常、空档或其他必须说明的情况。',level:INFO},{name:'Video Response',limit:'按系统计时',focus:'自然交流，不背稿；展示个人特质与表达。',level:HARD}],
     references:{headline:'1 封推荐信',detail:'必须在轮次截止前完成，选择最能评价学业/实习表现的人。',level:HARD},
-    extra:[{name:'Kira 面试',detail:'邀请制，通常包含 4 道口头题和 1 道书面题；以邀请邮件为准。',level:INFO}],
+    extra:[{name:'Kira 面试',detail:'邀请制，通常包含 4 道口头题和 1 道书面题；以邀请邮件为准。',level:INFO},{name:'国际申请者最终日',detail:'Fall 2027 国际申请者最终截止为 2027年4月5日；美国申请者仍可按后续 Round 5 日历提交。',level:HARD}],
     sources:[{url:'https://business.vanderbilt.edu/masters-in-finance/admissions/application-instructions/',label:'Vanderbilt MSF Application Instructions',type:HARD}]
   });
   add([321],{
@@ -366,6 +370,8 @@
     sources:[{url:'https://www.sem.tsinghua.edu.cn/jyjx/zsxx.htm',label:'清华经管招生信息',type:HARD}]
   };
   add([430,431],tsinghua);
+  R[430].extra.push({name:'2027级综合考核状态',detail:'清华经管已于 2026年8月14日发布入围名单与实施办法；资格审查和综合考核按院系邮件在 8 月下旬进行。',level:HARD});
+  R[431].extra.push({name:'2027级综合考核状态',detail:'清华经管已于 2026年8月14日发布入围名单与实施办法；管理硕士资格审查/综合考核按通知在 8月25–27日开展。',level:HARD});
   const tcba=clone(tsinghua);
   tcba.language={headline:'TOEFL 100 或 IELTS 7.5',detail:'双硕士英文培养要求；提交有效官方成绩并同时核验当年豁免与送分政策。',level:HARD};
   tcba.tests={headline:'GRE / GMAT 以当年双学位通知为准',detail:'当前站内摘要不把它列为统一硬门槛；如申请系统要求则必须提交。',level:INFO};
@@ -384,6 +390,23 @@
   pbcsf.writing=[{name:'个人陈述 / 自述',limit:'按当年五道口夏令营或推免通知',focus:'金融动机、数量与经济金融基础、实习/研究证据、职业目标和学院匹配。',level:HARD}];
   pbcsf.sources=[{url:'https://www.pbcsf.tsinghua.edu.cn/jyjx/zsxx.htm',label:'清华五道口招生信息',type:HARD}];
   add([434],pbcsf);
+  R[434].extra.push({name:'2027级五道口综合考核',detail:'实施办法于 2026年8月19日发布；8月23日 10:00–11:00 资格审查。专业笔试 120 分钟、60 分及格但不计总分；面试不少于 20 分钟，最终成绩按面试计。',level:HARD});
+
+  const inProgramDual=clone(tsinghua);
+  inProgramDual.language={headline:'先满足清华主项目要求；合作院校要求以后续校内通知为准',detail:'这些路径不是当前可直接独立申请的海外项目。获得清华校内提名后，再提交合作院校当期认可的英语证明。',level:HARD};
+  inProgramDual.tests={headline:'GRE / GMAT 不设统一共用门槛',detail:'清华主项目不统一要求；合作院校是否要求、接受何种测试以及有效期，须以获得提名时的通知为准。',level:INFO};
+  inProgramDual.writing=[{name:'校内申请 / 英文动机陈述',limit:'以在读年级选拔通知为准',focus:'说明两校培养的互补性、课程与职业目标、跨文化准备及可验证的数量/金融能力。',level:HARD}];
+  inProgramDual.references={headline:'先满足清华推免推荐要求；入学后可能另需英文推荐',detail:'合作院校材料数量和推荐人类型以校内提名通知为准，不把未知要求写成固定门槛。',level:INFO};
+  inProgramDual.extra=[{name:'申请顺序',detail:'先申请并入读对应的清华金融硕士，再参加校内选拔；获得清华提名并通过合作院校审核后，才进入双学位路径。',level:HARD},{name:'时间线性质',detail:'公开页未给出统一外部申请截止，站内因此保留“入学后校内选拔”，不套用合作院校普通项目的直接申请轮次。',level:HARD}];
+  inProgramDual.sources=[{url:'https://masters.sem.tsinghua.edu.cn/jrss1.htm',label:'清华经管金融硕士国际双学位机会',type:HARD}];
+  add([437,438,439],inProgramDual);
+  const pbcsfDual=clone(inProgramDual);
+  pbcsfDual.sources=[{url:'https://mf.pbcsf.tsinghua.edu.cn/gjjl.htm',label:'清华五道口金融硕士国际交流与双学位',type:HARD}];
+  add([435],pbcsfDual);
+  const pbcsfGwu=clone(pbcsfDual);
+  pbcsfGwu.extra.push({name:'新合作状态',detail:'两校于 2026年4月公布合作，计划自 2026年秋季启动招生；具体首批校内选拔时间和材料以五道口后续通知为准。',level:INFO});
+  pbcsfGwu.sources=[{url:'https://www.pbcsf.tsinghua.edu.cn/info/1154/10372.htm',label:'清华五道口 × GWU 双学位合作公告',type:HARD}];
+  add([436],pbcsfGwu);
 
   (window.GRADPATH_PROGRAMS||[]).forEach(p=>{
     if(!R[p.id]) add([p.id],{

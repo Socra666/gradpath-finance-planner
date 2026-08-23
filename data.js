@@ -1,4 +1,4 @@
-window.GRADPATH_DATA_DATE = '2026-08-15';
+window.GRADPATH_DATA_DATE = '2026-08-23';
 window.GRADPATH_PROGRAMS = [
   {
     id: 101,
@@ -38,11 +38,11 @@ window.GRADPATH_PROGRAMS = [
     school: 'Harvard University', aliases: 'Harvard 哈佛',
     name: 'ALM in Extension Studies, Field: Finance', degree: 'ALM · mostly online · performance-based admission',
     field: 'Finance Investment Corporate Finance 金融 投资 公司金融',
-    deadline: '先修读 3 门入学课程，再正式申请', term: 'Fall / Spring / Summer starts',
+    deadline: '先修 3 门入学课程；申请窗：夏 07-01–08-01 / 秋 11-01–12-01 / 春 03-15–04-15', term: 'Fall / Spring / Summer starts',
     tags: ['继续教育', '非传统全日制', '需谨慎比较'],
     url: 'https://extension.harvard.edu/academics/programs/finance-graduate-program/finance-degree-requirements/',
     materials: ['本科学位资格证明', '先完成经济学、金融、统计 3 门入学课程', '三门课程成绩均达到 B 或以上', '累计 GPA 不低于 3.0', '正式成绩单', '英语能力证明（如适用）'],
-    events: [['第一阶段', '确认你是否接受 Extension School 的项目定位'], ['选课前', '完成学历等值与英语资格核验'], ['入学课程阶段', '修读 3 门指定课程并达到成绩要求'], ['第 3 门课程学期', '递交正式项目申请']]
+    events: [['2026年7月20日–8月24日', 'Fall 2026 课程注册；8月31日开课'], ['入学课程阶段', '完成经济学、金融、统计 3 门入学课程，每门 B 或以上且 Harvard 累计 GPA≥3.0'], ['第 3 门入学课程为夏季课', '7月1日–8月1日提交正式学位申请'], ['第 3 门入学课程为秋季课', '11月1日–12月1日提交正式学位申请'], ['第 3 门入学课程为春季课', '3月15日–4月15日提交正式学位申请']]
   },
   {
     id: 105,
@@ -105,11 +105,11 @@ window.GRADPATH_PROGRAMS = [
     school: 'University of Cambridge', aliases: 'Cambridge 剑桥',
     name: 'Master of Finance', degree: 'MFin · 12 months · post-experience',
     field: 'Finance Investment Asset Management 金融 投资 资产管理',
-    deadline: '2027 entry：2026-09-01 开放；最终截止日待公布', term: 'Michaelmas 2027',
+    deadline: '2026-09-01 开放；最终截止 2027-05-31（滚动审理）', term: 'Michaelmas 2027',
     tags: ['有工作经验', '职业型', '12个月'],
     url: 'https://www.postgraduate.study.cam.ac.uk/courses/directory/bmjbmffin/finance',
     materials: ['在线申请', '成绩单', '推荐信', '简历', '职业目标陈述', '英语能力证明', '相关金融工作经历证明'],
-    events: [['申请前', '先确认毕业后至少 2 年金融工作经验是否满足项目定位'], ['2026年9月1日', '2027 入学申请开放'], ['开放后', '准备两位推荐人、职业叙事并参加受邀面试'], ['建议早申请', '滚动审理；最终截止日尚待官网公布']]
+    events: [['申请前', '先确认毕业后至少 2 年金融工作经验是否满足项目定位'], ['2026年9月1日', '2027 入学申请开放'], ['开放后', '准备两位推荐人、职业叙事并参加受邀面试'], ['2027年5月31日', '最终申请及推荐信截止；滚动审理且可能提前满位，建议显著早于最终日提交']]
   },
   {
     id: 111,
@@ -165,6 +165,17 @@ window.GRADPATH_PROGRAMS = [
     url: 'https://msc.hkubs.hku.hk/',
     materials: ['在线申请', '学位与成绩单', '2 位推荐人材料', '简历', '个人陈述', '英语能力证明', '相关实习/工作证明'],
     events: [['现在', '2027 intake 申请已开放；积累财富、投资或私人银行相关经历'], ['2026年9月28日 12:00 HKT', 'Round 1 截止；申请费 HK$780'], ['轮次截止后 2 个工作日内', '按 FAQ 要求补齐系统指定文件'], ['提交后', '准备职业目标和行业认知面试']]
+  },
+  {
+    id: 116,
+    school: 'The University of Hong Kong', aliases: 'HKU 港大 香港大学 Family Wealth Management 家族财富管理',
+    name: 'Master of Family Wealth Management', degree: 'MFWM · taught postgraduate',
+    field: 'Family Wealth Management Family Office Investment Governance 家族财富管理 家族办公室 投资 治理',
+    deadline: 'Round 1：2026-09-28 · 12:00 HKT', term: 'September 2027',
+    tags: ['家族财富管理', '家族办公室', '香港'],
+    url: 'https://masters.hkubs.hku.hk/our-programmes/master-of-family-wealth-management/',
+    materials: ['在线申请', '学位与成绩单', '2 位推荐人（其中 1 位学术推荐人须提供大学官方个人主页）', '简历', '约 300 词指定短文', '英语能力证明', '奖学金陈述（可选，最多 300 词）', '相关实习/工作证明（如有）'],
+    events: [['现在', '2027 intake 申请已开放；梳理家族办公室、投资、传承或治理相关经历'], ['2026年9月28日 12:00 HKT', 'Round 1 截止；申请费 HK$780'], ['轮次截止后 2 个工作日内', '按系统要求补齐文件；留意录制视频或面试通知'], ['录取后', '当前学费 HK$508,000、首期留位费 HK$169,000；付款前以 offer 为准']]
   },
   {
     id: 201, isDual: true,
@@ -292,33 +303,33 @@ window.GRADPATH_PROGRAMS = [
     school: 'University of Chicago', aliases: 'UChicago 芝加哥大学',
     name: 'MS in Financial Mathematics', degree: 'MSFM · 5 quarters',
     field: 'Financial Mathematics Quant Risk Finance 金融数学 量化 风险 金融',
-    deadline: 'Round 1：2027年1月 TBA；Round 2：2027年3月 TBA', term: 'Autumn 2027',
+    deadline: 'R1 2026-12-03；R2 2027-01-14；R3 2027-03-25', term: 'Autumn 2027',
     tags: ['强烈推荐', '金融数学', '五学季'],
     url: 'https://finmath.uchicago.edu/admissions/',
     materials: ['在线申请', '成绩单', '简历', 'Candidate Statement', '推荐信', 'GRE（可提交，GMAT 不接受）', '英语能力证明（如适用）', '数学和基础编程证明'],
-    events: [['现在–2026年9月', '确保多元微积分、线代、概率和编程先修完整'], ['2026年秋', '申请开放后核对两个轮次的具体日期'], ['2027年1月', 'Round 1，具体日期待官网公布；国际申请人建议本轮'], ['2027年3月', 'Round 2，具体日期待官网公布']]
+    events: [['现在–2026年9月', '确保多元微积分、线代、概率和编程先修完整'], ['2026年12月3日', 'Round 1 截止；国际申请人宜优先本轮'], ['2027年1月14日', 'Round 2 截止'], ['2027年3月25日', 'Round 3 截止']]
   },
   {
     id: 306, isRecommended: true,
     school: 'Cornell University', aliases: 'Cornell 康奈尔',
     name: 'MEng in ORIE — Financial Engineering Concentration', degree: 'MEng · FE concentration',
     field: 'Financial Engineering Operations Research Quant 金融工程 运筹学 量化',
-    deadline: '2027 entry 待官网更新', term: 'Fall 2027',
+    deadline: '2026-12-01', term: 'Fall 2027',
     tags: ['推荐', '常春藤', '工程型'],
     url: 'https://catalog.cornell.edu/programs/operations-research-information-engineering-orie-meng/',
-    materials: ['在线申请', '成绩单', 'Academic Statement of Purpose', 'Personal Statement', '简历', '至少 2 封推荐信', 'GRE/GMAT（偏好提交）', '异步视频面试', '英语能力证明'],
-    events: [['现在', '核对两学期概率统计及金融导论先修'], ['申请前', '补足随机过程、微分方程及 Python/R'], ['截止前 8 周', '完成两类陈述和推荐信'], ['提交后', '完成异步视频面试']]
+    materials: ['在线申请', '成绩单', 'Academic Statement of Purpose（最多 1,000 词）', 'Personal Statement（最多 1,000 词）', '简历', '2 封推荐信必交、3 封更佳', 'GRE 或 GMAT 必交（官方偏好 GRE）', '截止后异步视频面试', '英语能力证明'],
+    events: [['现在', '核对两学期概率统计及金融导论先修'], ['申请前', '补足随机过程、微分方程及 Python/R，并完成 GRE'], ['2026年12月1日', 'Fall 2027 完整申请截止'], ['截止后', '按项目邮件完成异步视频面试']]
   },
   {
     id: 307, isRecommended: true,
     school: 'London School of Economics', aliases: 'LSE 伦敦政治经济学院',
     name: 'MSc Financial Mathematics', degree: 'MSc · 10 months',
     field: 'Financial Mathematics Quant Risk Portfolio 金融数学 量化 风险 组合管理',
-    deadline: '滚动录取；2027 entry 待开放', term: 'September 2027',
+    deadline: '2026年10月开放；随后滚动录取', term: 'September 2027',
     tags: ['强烈推荐', '伦敦', '金融数学'],
     url: 'https://www.lse.ac.uk/study-at-lse/graduate/msc-financial-mathematics',
     materials: ['在线申请', '成绩单', 'Statement of Academic Purpose', '2 封推荐信', '简历', '英语能力证明', '优秀数学背景'],
-    events: [['现在–2026年9月', '准备数学课程清单与量化经历'], ['开放后尽早', 'LSE 滚动录取，建议早提交'], ['资助截止前', '同步完成 Graduate Financial Support'], ['提交后', '关注补件和录取状态']]
+    events: [['现在–2026年9月', '准备数学课程清单与量化经历'], ['2026年10月', '2027 entry 申请开放'], ['开放后尽早', 'LSE 滚动录取，建议早提交'], ['资助截止前', '同步完成 Graduate Financial Support；提交后关注补件和录取状态']]
   },
   {
     id: 308, isRecommended: true,
@@ -421,17 +432,17 @@ window.GRADPATH_PROGRAMS.push(
     tags: ['哥大补充', '商学院金融', '研究与行业'],
     url: 'https://academics.business.columbia.edu/msfe',
     materials: ['在线申请与申请费', '全部高等教育成绩单', 'Resume/CV', '1 个职业目标短答 + 2 篇 Essays（各最多 500 词）', '2 封推荐信', 'GMAT 或 GRE（必交）', 'TOEFL/IELTS/PTE（如适用）', '线代、微积分、编程、概率与统计等先修背景证明'],
-    events: [['2026年8月3日', 'Columbia Business School MS 申请开放'], ['2026年8–11月', '完成先修课核对、标化、两篇 Essay 与推荐信'], ['2027年1月14日', '提交 MS in Financial Economics 完整申请'], ['2027年3月', '关注决定与材料核验通知']]
+    events: [['2026年8月5日', 'Columbia Business School MS 申请开放'], ['2026年8–11月', '完成先修课核对、标化、两篇 Essay 与推荐信'], ['2027年1月14日', '提交 MS in Financial Economics 完整申请'], ['2027年3月', '关注决定与材料核验通知']]
   },
   {
     id: 317, isRecommended: true,
     school: 'Columbia University', aliases: 'Columbia 哥大 哥伦比亚 MAFN Mathematics Finance',
     name: 'MA in Mathematics with a Specialization in the Mathematics of Finance', degree: 'MA · 2–3 semesters full-time',
     field: 'Mathematics of Finance Quant Trading Risk Derivatives 金融数学 量化 交易 风险 衍生品',
-    deadline: '2027-04-08', term: 'Fall 2027 / Spring 2027',
+    deadline: 'Spring：2026-10-29；Fall early：2027-01-05；Fall final：2027-04-08', term: 'Fall 2027 / Spring 2027',
     tags: ['哥大补充', '金融数学', '应届早申'],
     url: 'https://www.gsas.columbia.edu/content/mathematics-finance',
-    materials: ['GSAS 在线申请与申请费', '每所学校 1 份完整成绩单', 'Statement of Academic Purpose', 'Personal Statement', 'CV/Resume', '3 封推荐信（至少 2 封学术推荐）', 'GRE General：不要求', 'TOEFL/IELTS/DET（如适用）'],
+    materials: ['GSAS 在线申请与申请费', '每所学校 1 份完整成绩单', 'Statement of Academic Purpose', 'Personal Statement', 'CV/Resume', '3 封推荐信（至少 2 封学术推荐）', 'GRE/GMAT 非必交但官方强烈建议；GRE 更受偏好', 'TOEFL/IELTS/DET（如适用）'],
     events: [['2026年10月29日', 'Spring 2027 申请截止（如考虑春季入学）'], ['2027年1月5日', '在读本科生或 2026年12月后毕业者官方强烈建议在此 early admission 节点前提交'], ['2027年4月8日', 'Fall 2027 最终申请截止'], ['提交前', '至少 2 位学术推荐人完成提交；录取后不允许延期']]
   },
   {
@@ -465,7 +476,7 @@ window.GRADPATH_PROGRAMS.push(
     tags: ['美国补充', '应届友好', '多轮申请'],
     url: 'https://business.vanderbilt.edu/masters-in-finance/admissions/',
     materials: ['在线申请与申请费', '非官方成绩单（录取后提交正式件）', 'Resume/CV', '必答 Personal Statement + 可选说明', 'Video Essay', '1 封推荐信', 'GMAT/GRE（可选）', 'TOEFL/IELTS/DET/TOEFL Essentials（如适用）', '受邀 Kira 异步面试'],
-    events: [['2026年9月10日', 'Round 1 申请截止'], ['2026年10月29日', 'Round 2 申请截止'], ['2027年1月13日', 'Round 3 申请截止'], ['2027年2月24日', 'Round 4 申请截止'], ['2027年4月1日', '国际申请者建议最晚提交节点'], ['2027年4月28日', 'Round 5 申请截止']]
+    events: [['2026年8月19日', 'Fall 2027 申请开放'], ['2026年9月10日', 'Round 1 申请截止'], ['2026年10月29日', 'Round 2 申请截止'], ['2027年1月13日', 'Round 3 申请截止'], ['2027年2月24日', 'Round 4 申请截止'], ['2027年4月5日', '国际申请者最终截止'], ['2027年4月28日', 'Round 5 申请截止']]
   },
   {
     id: 321, isRecommended: true,
@@ -483,11 +494,11 @@ window.GRADPATH_PROGRAMS.push(
     school: 'Georgia Institute of Technology', aliases: 'Georgia Tech 佐治亚理工 QCF Quantitative Computational Finance',
     name: 'MS in Quantitative and Computational Finance', degree: 'MS-QCF · 1–2 years · Fall/Spring',
     field: 'Quantitative Computational Finance Risk Data Science Programming 量化 计算金融 风险 数据科学 编程',
-    deadline: 'Spring 2027：2026-10-15；Fall 2027 portal final：2027-06-01', term: 'Spring / Fall 2027',
+    deadline: 'Spring final 2026-10-01；Fall early 2026-10-15 / standard 12-05 / intl final 2027-03-15', term: 'Spring / Fall 2027',
     tags: ['美国补充', '计算金融', '面试'],
     url: 'https://qcf.gatech.edu/prospective-students/application-requirements',
     materials: ['在线申请与申请费', '非官方成绩单', 'Statement of Purpose / Essay + 申请内短答', 'Resume/CV', '3 封推荐信', 'GRE/GMAT（多数申请者必交）', 'TOEFL/IELTS（如适用）', '微积分、线代、微分方程、概率统计与编程准备证明', '受邀行为面试'],
-    events: [['2026年8月1日', 'Spring 2027 Standard Round 节点'], ['2026年10月1日', 'Spring 2027 Final Round 节点'], ['2026年10月15日', 'Spring 2027 申请系统正式关闭'], ['2027年6月1日', '研究生申请门户当前列出的 Fall 2027 最终关闭日；项目轮次仍待公布']]
+    events: [['2026年8月1日', 'Spring 2027 Standard Round 截止'], ['2026年10月1日', 'Spring 2027 Final Round 截止；系统 10月15日关闭'], ['2026年10月15日', 'Fall 2027 Early Round 截止'], ['2026年12月5日', 'Fall 2027 Standard Round 截止'], ['2027年3月15日', 'Fall 2027 美国境外国际申请人最终截止'], ['2027年5月1日', 'Fall 2027 美国公民/永久居民及当前在美国际申请人最终截止；系统 5月15日关闭']]
   }
 );
 
@@ -497,7 +508,8 @@ const pkuAcademicMaterials = ['学术夏令营申请表', '个人陈述', '3 封
 const tsinghuaMaterials = ['有效身份证明与在学证明', '本人自述', '外语水平证明', '2 封副教授及以上专家推荐信', '成绩单及排名证明', '中英文一页简历', '科研、竞赛与能力证明（如有）'];
 const pkuProEvents = [['2026年6月1日 00:00', '专业学位夏令营系统开放'], ['2026年6月16日 12:00', '申请截止'], ['2026年7月', '参加夏令营与项目考核'], ['获得推免资格后', '按北大及教育部推免系统要求确认']];
 const pkuAcademicEvents = [['2026年6月1日 00:00', '学术夏令营系统开放'], ['2026年6月16日 12:00', '多数方向截止；统计学为6月21日12:00'], ['2026年7月中上旬', '参加学术夏令营与考核'], ['获得推免资格后', '按北大及教育部推免系统要求确认']];
-const tsinghuaEvents = [['2026年7月1日 10:00', '清华研究生申请服务系统开放'], ['2026年7月28日 15:00', '网上报名与材料提交截止'], ['后续院系通知', '参加综合考核'], ['教育部推免系统开放后', '完成志愿、复试及待录取确认']];
+const tsinghuaEvents = [['2026年7月1日 10:00', '清华研究生申请服务系统开放'], ['2026年7月28日 15:00', '网上报名与材料提交截止'], ['2026年8月14日', '清华经管发布综合考核名单与实施办法'], ['2026年8月下旬', '按院系邮件完成资格审查与综合考核'], ['教育部推免系统开放后', '完成志愿、复试及待录取确认']];
+const pbcsfEvents = [['2026年7月1日 10:00', '清华研究生申请服务系统开放'], ['2026年7月28日 15:00', '网上报名与材料提交截止'], ['2026年8月19日', '五道口发布综合考核办法'], ['2026年8月23日 10:00–11:00', '资格审查；随后按通知参加 120 分钟笔试与不少于 20 分钟面试'], ['教育部推免系统开放后', '完成志愿、复试及待录取确认']];
 
 [
   ['北京大学光华管理学院', '金融硕士—高级金融方向', '金融专硕 · 全日制', 'Finance Investment Banking Asset Management 金融 投行 资产管理', ['清北推免','专业学位','高级金融'], 'https://www.gsm.pku.edu.cn/__local/D/91/1A/58DDA27E9594E6CFDC313A901D8_496D5812_1BDAF.pdf'],
@@ -521,9 +533,14 @@ const tsinghuaEvents = [['2026年7月1日 10:00', '清华研究生申请服务�
 ].forEach((x,i)=>window.GRADPATH_PROGRAMS.push({id:410+i,isChinaRecommend:true,school:'北京大学光华管理学院',aliases:'PKU 北大 光华 学术夏令营 推免',name:'学术硕士—'+x[0],degree:'学术型硕士/硕博培养方向 · 以当年目录为准',field:x[1],deadline:'已截止 · '+(x[0]==='统计学'?'2026-06-21 12:00':'2026-06-16 12:00'),term:'2027级',tags:['清北推免','学术项目','研究导向'],url:'https://www.gsm.pku.edu.cn/__local/C/1C/04/DD8A38C8BCBE5B49FFCAE0D2DD1_12417E5F_1AA56.pdf',materials:pkuAcademicMaterials,events:pkuAcademicEvents}));
 
 window.GRADPATH_PROGRAMS.push(
-  {id:430,isChinaRecommend:true,school:'清华大学经济管理学院',aliases:'Tsinghua SEM 清华 经管 推免',name:'金融硕士',degree:'025100 金融 · 全日制',field:'Finance Investment Asset Management 金融 投资 资产管理',deadline:'已截止 · 2026-07-28 15:00',term:'2027级',tags:['清北推免','专业学位','经管学院'],url:'https://masters.sem.tsinghua.edu.cn/info/1291/3612.htm',materials:[...tsinghuaMaterials,'金融硕士学生修习课程列表'],events:[...tsinghuaEvents,['重要互斥','同年度不得兼报清华五道口金融硕士']]},
-  {id:431,isChinaRecommend:true,school:'清华大学经济管理学院',aliases:'Tsinghua SEM 清华 经管 MiM 推免',name:'管理硕士',degree:'120200 工商管理学 · 全日制',field:'Management CEMS Business Finance 管理 商科 金融',deadline:'已截止 · 2026-07-28 15:00',term:'2027级',tags:['清北推免','管理硕士','CEMS机会'],url:'https://masters.sem.tsinghua.edu.cn/info/1291/3612.htm',materials:tsinghuaMaterials,events:tsinghuaEvents},
-  {id:432,isChinaRecommend:true,isDual:true,school:'清华经管 × Columbia University',aliases:'Tsinghua Columbia 清华 哥伦比亚 商务分析 双学位 推免',name:'清华—哥伦比亚大学商务分析双硕士',degree:'双硕士 · 管理科学与工程',field:'Business Analytics Data Science Finance 商务分析 数据科学 金融',deadline:'已截止 · 2026-07-28 15:00',term:'2027级',tags:['清北推免','双学位','商务分析'],url:'https://masters.sem.tsinghua.edu.cn/info/1291/3612.htm',materials:[...tsinghuaMaterials,'中英文本人自述','共 3 封英文或双语推荐信','中英文本科成绩单','TOEFL≥100 / IELTS≥7.5，或当期认可替代成绩'],events:tsinghuaEvents},
-  {id:433,isChinaRecommend:true,isDual:true,school:'清华经管 × London Business School',aliases:'Tsinghua LBS 清华 伦敦商学院 金融 双学位 推免',name:'清华金融硕士 + LBS Masters in Financial Analysis',degree:'双硕士路径 · 金融',field:'Finance Asset Management Financial Analysis 金融 资产管理 金融分析',deadline:'已截止 · 2026-07-28 15:00',term:'2027级',tags:['清北推免','跨校双学位','金融'],url:'https://masters.sem.tsinghua.edu.cn/info/1291/3612.htm',materials:[...tsinghuaMaterials,'LBS 双学位申请表','本科英文成绩单','MFA Application Essays','有效 TOEFL/IELTS','GRE/GMAT（可补充）'],events:[...tsinghuaEvents,['清华提名后','参加 LBS 面试；不得另行申请 LBS 其他项目']]},
-  {id:434,isChinaRecommend:true,school:'清华大学五道口金融学院',aliases:'Tsinghua PBCSF 清华 五道口 推免',name:'金融硕士（全日制）',degree:'025100 金融 · 全日制',field:'Finance Financial Policy Markets FinTech 金融 金融政策 市场 金融科技',deadline:'已截止 · 2026-07-28 15:00',term:'2027级',tags:['清北推免','五道口','金融专硕'],url:'https://www.pbcsf.tsinghua.edu.cn/info/1146/10497.htm',materials:tsinghuaMaterials,events:[...tsinghuaEvents,['重要互斥','同年度不得兼报清华经管金融硕士']]}
+  {id:430,isChinaRecommend:true,school:'清华大学经济管理学院',aliases:'Tsinghua SEM 清华 经管 推免',name:'金融硕士',degree:'025100 金融 · 全日制',field:'Finance Investment Asset Management 金融 投资 资产管理',deadline:'综合考核进行中 · 名单/办法已于 2026-08-14 发布',term:'2027级',tags:['清北推免','专业学位','综合考核中'],url:'https://masters.sem.tsinghua.edu.cn/info/1291/3612.htm',materials:[...tsinghuaMaterials,'金融硕士学生修习课程列表'],events:[...tsinghuaEvents,['重要互斥','同年度不得兼报清华五道口金融硕士']]},
+  {id:431,isChinaRecommend:true,school:'清华大学经济管理学院',aliases:'Tsinghua SEM 清华 经管 MiM 推免',name:'管理硕士',degree:'120200 工商管理学 · 全日制',field:'Management CEMS Business Finance 管理 商科 金融',deadline:'综合考核进行中 · 名单/办法已于 2026-08-14 发布',term:'2027级',tags:['清北推免','管理硕士','综合考核中'],url:'https://masters.sem.tsinghua.edu.cn/info/1291/3612.htm',materials:tsinghuaMaterials,events:tsinghuaEvents},
+  {id:432,isChinaRecommend:true,isDual:true,school:'清华经管 × Columbia University',aliases:'Tsinghua Columbia 清华 哥伦比亚 商务分析 双学位 推免',name:'清华—哥伦比亚大学商务分析双硕士',degree:'双硕士 · 管理科学与工程',field:'Business Analytics Data Science Finance 商务分析 数据科学 金融',deadline:'综合考核进行中 · 名单/办法已于 2026-08-14 发布',term:'2027级',tags:['清北推免','双学位','综合考核中'],url:'https://masters.sem.tsinghua.edu.cn/info/1291/3612.htm',materials:[...tsinghuaMaterials,'中英文本人自述','共 3 封英文或双语推荐信','中英文本科成绩单','TOEFL≥100 / IELTS≥7.5，或当期认可替代成绩'],events:tsinghuaEvents},
+  {id:433,isChinaRecommend:true,isDual:true,school:'清华经管 × London Business School',aliases:'Tsinghua LBS 清华 伦敦商学院 金融 双学位 推免',name:'清华金融硕士 + LBS Masters in Financial Analysis',degree:'双硕士路径 · 金融',field:'Finance Asset Management Financial Analysis 金融 资产管理 金融分析',deadline:'综合考核进行中 · 名单/办法已于 2026-08-14 发布',term:'2027级',tags:['清北推免','跨校双学位','综合考核中'],url:'https://masters.sem.tsinghua.edu.cn/info/1291/3612.htm',materials:[...tsinghuaMaterials,'LBS 双学位申请表','本科英文成绩单','MFA Application Essays','有效 TOEFL/IELTS','GRE/GMAT（可补充）'],events:[...tsinghuaEvents,['清华提名后','参加 LBS 面试；不得另行申请 LBS 其他项目']]},
+  {id:434,isChinaRecommend:true,school:'清华大学五道口金融学院',aliases:'Tsinghua PBCSF 清华 五道口 推免',name:'金融硕士（全日制）',degree:'025100 金融 · 全日制',field:'Finance Financial Policy Markets FinTech 金融 金融政策 市场 金融科技',deadline:'综合考核进行中 · 办法已于 2026-08-19 发布',term:'2027级',tags:['清北推免','五道口','综合考核中'],url:'https://www.pbcsf.tsinghua.edu.cn/info/1146/10497.htm',materials:tsinghuaMaterials,events:[...pbcsfEvents,['考核规则','笔试 120 分钟、60 分及格且不计总分；面试不少于 20 分钟，最终成绩按面试计'],['重要互斥','同年度不得兼报清华经管金融硕士']]},
+  {id:435,isChinaRecommend:true,isDual:true,school:'清华五道口 × UC Berkeley Haas',aliases:'Tsinghua PBCSF Berkeley Haas 清华 五道口 伯克利 MFE 双学位',name:'清华五道口金融硕士 + Berkeley Haas MFE',degree:'双硕士路径 · 1.5年清华 + 1年 Berkeley + 0.5年清华',field:'Finance Financial Engineering Quant 金融 金融工程 量化',deadline:'先录取五道口金融硕士；入学后校内选拔',term:'以在读年级通知为准',tags:['跨校双学位','金融工程','校内选拔'],url:'https://mf.pbcsf.tsinghua.edu.cn/gjjl.htm',materials:[...tsinghuaMaterials,'入学后校内申请表/提名材料','英文成绩单与简历','英文动机陈述','Berkeley 当期语言与测试材料（如要求）'],events:[['第一步','申请并入读清华五道口金融硕士'],['入学后','关注五道口国际交流与双学位校内选拔通知'],['获得提名后','按 Berkeley Haas MFE 当期要求补齐合作院校申请'],['录取后','按 1.5+1+0.5 年培养安排完成两校学习']]},
+  {id:436,isChinaRecommend:true,isDual:true,school:'清华五道口 × George Washington University',aliases:'Tsinghua PBCSF GWU George Washington 清华 五道口 乔治华盛顿 国际商务 双学位',name:'清华五道口金融硕士 + GWU MS in International Business',degree:'双硕士路径 · 1年清华 + 1.5年 GWU + 0.5年清华',field:'Finance International Business Global Markets 金融 国际商务 全球市场',deadline:'计划自 2026 秋季启动；先录取五道口金融硕士，入学后校内选拔',term:'以在读年级通知为准',tags:['跨校双学位','国际商务','校内选拔'],url:'https://www.pbcsf.tsinghua.edu.cn/info/1154/10372.htm',materials:[...tsinghuaMaterials,'入学后校内申请与学院提名','英文成绩单与简历','英文动机陈述','GWU 当期语言与合作项目材料'],events:[['2026年4月','两校公布新合作协议'],['第一步','申请并入读清华五道口金融硕士'],['计划自2026年秋季','关注首批校内招生/选拔通知'],['获得提名后','按 GWU 当期合作项目要求完成审核'],['录取后','按 1+1.5+0.5 年培养安排完成两校学习']]},
+  {id:437,isChinaRecommend:true,isDual:true,school:'清华经管 × HEC Paris',aliases:'Tsinghua SEM HEC 清华 经管 巴黎高商 金融 双学位',name:'清华金融硕士 + HEC Paris 双学位路径',degree:'在读金融硕士国际双学位机会',field:'Finance International Finance Asset Management 金融 国际金融 资产管理',deadline:'先录取清华经管金融硕士；入学后校内选拔',term:'以在读年级通知为准',tags:['跨校双学位','HEC','校内选拔'],url:'https://masters.sem.tsinghua.edu.cn/jrss1.htm',materials:[...tsinghuaMaterials,'入学后双学位申请/提名材料','英文成绩单与简历','英文动机陈述','合作院校当期语言与测试材料'],events:[['第一步','申请并入读清华经管金融硕士'],['入学后','关注学院国际双学位选拔通知'],['获得清华提名后','按 HEC Paris 当期合作项目要求补齐材料'],['最终录取后','按当年培养方案完成两校学习']]},
+  {id:438,isChinaRecommend:true,isDual:true,school:'清华经管 × UC Berkeley',aliases:'Tsinghua SEM Berkeley 清华 经管 伯克利 金融 双学位',name:'清华金融硕士 + UC Berkeley 双学位路径',degree:'在读金融硕士国际双学位机会',field:'Finance Financial Engineering Quant 金融 金融工程 量化',deadline:'先录取清华经管金融硕士；入学后校内选拔',term:'以在读年级通知为准',tags:['跨校双学位','Berkeley','校内选拔'],url:'https://masters.sem.tsinghua.edu.cn/jrss1.htm',materials:[...tsinghuaMaterials,'入学后双学位申请/提名材料','英文成绩单与简历','英文动机陈述','合作院校当期语言与测试材料'],events:[['第一步','申请并入读清华经管金融硕士'],['入学后','关注学院国际双学位选拔通知'],['获得清华提名后','按 UC Berkeley 当期合作项目要求补齐材料'],['最终录取后','按当年培养方案完成两校学习']]},
+  {id:439,isChinaRecommend:true,isDual:true,school:'清华经管 × Columbia University',aliases:'Tsinghua SEM Columbia 清华 经管 哥伦比亚 金融 双学位',name:'清华金融硕士 + Columbia 双学位路径',degree:'在读金融硕士国际双学位机会',field:'Finance Analytics International Finance 金融 分析 国际金融',deadline:'先录取清华经管金融硕士；入学后校内选拔',term:'以在读年级通知为准',tags:['跨校双学位','Columbia','校内选拔'],url:'https://masters.sem.tsinghua.edu.cn/jrss1.htm',materials:[...tsinghuaMaterials,'入学后双学位申请/提名材料','英文成绩单与简历','英文动机陈述','合作院校当期语言与测试材料'],events:[['第一步','申请并入读清华经管金融硕士'],['入学后','关注学院国际双学位选拔通知'],['获得清华提名后','按 Columbia 当期合作项目要求补齐材料'],['最终录取后','按当年培养方案完成两校学习']]}
 );

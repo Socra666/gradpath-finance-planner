@@ -11,12 +11,13 @@
     107:{program:'https://www.ox.ac.uk/admissions/graduate/courses/msc-mathematical-and-computational-finance',apply:'https://www.ox.ac.uk/admissions/graduate/courses/msc-mathematical-and-computational-finance'},
     108:{program:'https://www.postgraduate.study.cam.ac.uk/courses/directory/bmjbmpfin',apply:'https://www.postgraduate.study.cam.ac.uk/courses/directory/bmjbmpfin/apply'},
     109:{program:'https://www.postgraduate.study.cam.ac.uk/courses/directory/ececmpmfe',apply:'https://www.postgraduate.study.cam.ac.uk/courses/directory/ececmpmfe/apply'},
-    110:{program:'https://www.postgraduate.study.cam.ac.uk/courses/directory/bmjbmffin',apply:'https://www.postgraduate.study.cam.ac.uk/courses/directory/bmjbmffin/apply'},
+    110:{program:'https://www.jbs.cam.ac.uk/masters-degrees/master-of-finance/',apply:'https://www.jbs.cam.ac.uk/masters-degrees/master-of-finance/apply/'},
     111:{program:'https://www.london.edu/masters-degrees/masters-in-financial-analysis?entry=true',apply:'https://www.london.edu/masters-degrees/masters-in-financial-analysis/apply?entry=true'},
     112:{program:'https://www.london.edu/masters-degrees/masters-in-finance-full-time?entry=true',apply:'https://www.london.edu/masters-degrees/masters-in-finance-full-time/apply?entry=true'},
     113:{program:'https://masters.hkubs.hku.hk/our-programmes/master-of-finance/',apply:'https://portal.hku.hk/tpg-admissions/programme-listing?faculty=hku-business-school'},
     114:{program:'https://masters.hkubs.hku.hk/our-programmes/master-of-finance-in-financial-technology/',apply:'https://portal.hku.hk/tpg-admissions/programme-listing?faculty=hku-business-school'},
     115:{program:'https://masters.hkubs.hku.hk/our-programmes/master-of-wealth-management/',apply:'https://portal.hku.hk/tpg-admissions/programme-listing?faculty=hku-business-school'},
+    116:{program:'https://masters.hkubs.hku.hk/our-programmes/master-of-family-wealth-management/',apply:'https://portal.hku.hk/tpg-admissions/programme-listing?faculty=hku-business-school'},
 
     201:{program:'https://som.yale.edu/programs/joint-degrees/mba-mms-asset-management',apply:'https://som.yale.edu/programs/joint-degrees/mba-mms-asset-management'},
     202:{program:'https://som.yale.edu/programs/mms-global-business-and-society/admissions/m2m-pathways',apply:'https://som.yale.edu/programs/mms-global-business-and-society/admissions/m2m-pathways'},
@@ -46,7 +47,7 @@
     318:{program:'https://engineering.nyu.edu/academics/programs/financial-engineering-ms',apply:'https://engineering.nyu.edu/admissions/graduate/apply'},
     319:{program:'https://www.anderson.ucla.edu/degrees/master-of-financial-engineering',apply:'https://www.anderson.ucla.edu/degrees/master-of-financial-engineering/admissions/requirements'},
     320:{program:'https://business.vanderbilt.edu/masters-in-finance/',apply:'https://business.vanderbilt.edu/masters-in-finance/admissions/application-instructions/'},
-    321:{program:'https://sites.lsa.umich.edu/quant/',apply:'https://sites.lsa.umich.edu/quant/admissions/'},
+    321:{program:'https://sites.lsa.umich.edu/quant/',apply:'https://sites.lsa.umich.edu/quant/apply/'},
     322:{program:'https://qcf.gatech.edu/',apply:'https://www.qcf.gatech.edu/prospective-students/application-requirements'},
 
     401:{program:'https://www.gsm.pku.edu.cn/mfin/index.htm',apply:'https://www.gsm.pku.edu.cn/__local/D/91/1A/58DDA27E9594E6CFDC313A901D8_496D5812_1BDAF.pdf'},
@@ -68,7 +69,12 @@
     431:{program:'https://masters.sem.tsinghua.edu.cn/glssxm1/xmgk.htm',apply:'https://masters.sem.tsinghua.edu.cn/info/1291/3612.htm'},
     432:{program:'https://masters.sem.tsinghua.edu.cn/qhdx_glbydxswfxsssxwxm1.htm',apply:'https://masters.sem.tsinghua.edu.cn/info/1291/3612.htm'},
     433:{program:'https://masters.sem.tsinghua.edu.cn/jrss1/gjhz.htm',apply:'https://masters.sem.tsinghua.edu.cn/info/1291/3612.htm'},
-    434:{program:'https://www.pbcsf.tsinghua.edu.cn/bkwm/jrss_qrz_.htm',apply:'https://www.pbcsf.tsinghua.edu.cn/info/1146/10497.htm'}
+    434:{program:'https://www.pbcsf.tsinghua.edu.cn/bkwm/jrss_qrz_.htm',apply:'https://www.pbcsf.tsinghua.edu.cn/info/1146/10497.htm'},
+    435:{program:'https://mf.pbcsf.tsinghua.edu.cn/gjjl.htm',apply:'https://www.pbcsf.tsinghua.edu.cn/info/1146/10497.htm'},
+    436:{program:'https://www.pbcsf.tsinghua.edu.cn/info/1154/10372.htm',apply:'https://www.pbcsf.tsinghua.edu.cn/info/1146/10497.htm'},
+    437:{program:'https://masters.sem.tsinghua.edu.cn/jrss1.htm',apply:'https://masters.sem.tsinghua.edu.cn/info/1291/3612.htm'},
+    438:{program:'https://masters.sem.tsinghua.edu.cn/jrss1.htm',apply:'https://masters.sem.tsinghua.edu.cn/info/1291/3612.htm'},
+    439:{program:'https://masters.sem.tsinghua.edu.cn/jrss1.htm',apply:'https://masters.sem.tsinghua.edu.cn/info/1291/3612.htm'}
   };
 
   const normalize=url=>String(url||'').trim().replace(/[?#].*$/,'').replace(/\/+$/,'').toLowerCase();
