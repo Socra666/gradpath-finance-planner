@@ -409,6 +409,7 @@
   add([436],pbcsfGwu);
 
   (window.GRADPATH_PROGRAMS||[]).forEach(p=>{
+    if(p.requirements) add([p.id],p.requirements);
     if(!R[p.id]) add([p.id],{
       language:{headline:'按当期项目英语要求',detail:'当前官方公开页未给出可确认的统一最低分；提交前核对豁免、总分、单项和有效期。',level:INFO},
       tests:{headline:'按当期项目测试政策',detail:noPublic,level:INFO},

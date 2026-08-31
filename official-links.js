@@ -77,6 +77,9 @@
     439:{program:'https://masters.sem.tsinghua.edu.cn/jrss1.htm',apply:'https://masters.sem.tsinghua.edu.cn/info/1291/3612.htm'}
   };
 
+  (window.GRADPATH_PROGRAMS||[]).filter(p=>p.apply).forEach(p=>{
+    window.GRADPATH_OFFICIAL_LINKS[p.id]={program:p.url,apply:p.apply};
+  });
   const normalize=url=>String(url||'').trim().replace(/[?#].*$/,'').replace(/\/+$/,'').toLowerCase();
   window.GRADPATH_GET_OFFICIAL_LINKS=function(program){
     const item=window.GRADPATH_OFFICIAL_LINKS[program.id]||{program:program.url,apply:program.url};

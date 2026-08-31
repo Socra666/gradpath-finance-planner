@@ -8,6 +8,8 @@
   document.head.appendChild(style);
 
   function archetype(p){
+    if([324,329].includes(p.id))return {key:'finance',name:'综合管理 MiM（本站规划模型）',weights:{academic:25,quant:10,tests:13,career:25,research:2,fit:25}};
+    if([323,325,326,327,328].includes(p.id))return {key:'finance',name:'授课型金融 / 财务（本站规划模型）',weights:{academic:25,quant:18,tests:13,career:29,research:2,fit:13}};
     const t=(p.name+' '+p.degree+' '+p.field+' '+(p.tags||[]).join(' ')).toLowerCase();
     if([101,103].includes(p.id))return {key:'quant',name:'量化要求较高的 MFin',weights:{academic:25,quant:32,tests:12,career:20,research:4,fit:7}};
     if(p.id===314)return {key:'asset',name:'房地产金融 / 投资',weights:{academic:23,quant:13,tests:10,career:34,research:4,fit:16}};
