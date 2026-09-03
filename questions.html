@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="referrer" content="no-referrer">
+  <title>申请问题库｜GradPath</title>
+  <link rel="stylesheet" href="documents.css?v=20260816-1">
+  <style>
+    main{padding:30px 0 50px}.question-head{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}h1{font-size:30px;margin:0 0 8px}.hint{color:var(--muted);font-size:13px;line-height:1.8}.note-tools{display:flex;gap:8px;flex-wrap:wrap}.note-tools button{padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--green);font-weight:700}.note-tools .save{background:var(--lime)}.note-label{display:block;font-weight:700;margin:22px 0 10px}textarea{display:block;width:100%;min-height:55vh;padding:22px;border:1px solid var(--line);border-radius:15px;background:var(--card);color:var(--ink);font:16px/1.9 "Microsoft YaHei",sans-serif;resize:vertical}textarea:focus{outline:2px solid var(--green);outline-offset:2px}.note-footer{display:flex;justify-content:space-between;gap:15px;margin:10px 0;font-size:12px;color:var(--muted)}#saveStatus.error{color:#a63420;font-weight:700}.local-note{background:#e9ede5;border-radius:12px;padding:12px 16px;margin:20px 0 0;font-size:12px;line-height:1.8;color:var(--green)}@media(max-width:600px){.wrap{width:calc(100% - 24px)}header{flex-wrap:wrap;padding:15px 0}.header-nav{justify-content:flex-start}textarea{padding:15px}.note-tools{width:100%}}
+  </style>
+</head>
+<body><div class="wrap">
+  <header><a class="brand" href="index.html"><i></i>GradPath</a><nav class="header-nav"><a href="index.html">项目列表</a><a href="timeline.html">申请时间线</a><a href="documents.html">个人资料库</a><a class="active" href="questions.html" aria-current="page">申请问题库</a></nav></header>
+  <main>
+    <div class="question-head"><div><h1>申请问题库</h1><div class="hint">像记事本一样，随时写下问题、补充答案或修改内容。</div></div><div class="note-tools"><button type="button" class="save" id="saveNote">保存</button><button type="button" id="exportNote">导出备份 .txt</button><button type="button" id="importNote">导入 .txt</button><input type="file" id="noteFile" accept=".txt,text/plain" hidden></div></div>
+    <p class="local-note">只保存在当前浏览器，不上传服务器，也不会展示给打开同一网址的朋友。换设备、无痕模式或清除网站数据可能导致记录丢失，请定期导出备份。此处不会自动生成 AI 回答。</p>
+    <label class="note-label" for="questionNotes">我的所有申请问题与备注</label>
+    <textarea id="questionNotes" spellcheck="false" placeholder="可以直接自由填写，例如：&#10;&#10;【港大 MFin】&#10;问题：PS 是否有字数限制？&#10;答案 / 备注：&#10;&#10;【MIT MFin】&#10;问题：视频面试应该怎么准备？&#10;答案 / 备注："></textarea>
+    <div class="note-footer"><span id="saveStatus" role="status" aria-live="polite">正在读取本机记录…</span><span id="noteCount">0 字符</span></div>
+    <noscript>请启用 JavaScript，才能保存和读取问题记录。</noscript>
+  </main><footer>私人记事本 · 不需要账号或 API 密钥。导出的文件包含你的问题，请自行妥善保管。</footer>
+</div><script src="questions.js"></script></body>
+</html>

@@ -8,7 +8,10 @@
   const style=document.createElement('style');
   style.textContent='.gradpath-timeline-link,.gradpath-vault-link{display:inline-flex;align-items:center;gap:6px;color:#174c3c!important;text-decoration:none;border-radius:11px;padding:9px 12px;font-size:12px;font-weight:900;white-space:nowrap}.gradpath-timeline-link{background:#dff36d}.gradpath-vault-link{background:#fff;border:1px solid #174c3c}.gradpath-timeline-link:before{content:"◷";font-size:15px}.gradpath-vault-link:before{content:"▣";font-size:14px}@media(max-width:650px){header{height:auto!important;min-height:68px;gap:8px}header .nav{display:none}.gradpath-timeline-link,.gradpath-vault-link{padding:8px 9px;font-size:11px}#assessBtn{padding:8px!important;font-size:11px}header>div:last-child{gap:5px!important}}';
   document.head.appendChild(style);
+  const questions=document.createElement('a');
+  questions.href='questions.html';questions.textContent='申请问题库';questions.className='gradpath-vault-link';
+  header.style.flexWrap='wrap';
   const back=header.querySelector('.back');
-  if(back){const group=document.createElement('div');group.style.cssText='display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end';back.before(group);group.append(link,vault,back)}
-  else{const right=header.lastElementChild;if(right&&right!==header.firstElementChild){right.insertBefore(vault,right.firstChild);right.insertBefore(link,vault)}else header.append(link,vault)}
+  if(back){const group=document.createElement('div');group.style.cssText='display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end';back.before(group);group.append(link,vault,questions,back)}
+  else{const right=header.lastElementChild;if(right&&right!==header.firstElementChild){right.style.flexWrap='wrap';right.insertBefore(questions,right.firstChild);right.insertBefore(vault,questions);right.insertBefore(link,vault)}else header.append(link,vault,questions)}
 })();
