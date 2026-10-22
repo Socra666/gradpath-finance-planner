@@ -7,7 +7,8 @@
     alumni_report: '匿名往届经验'
   };
   const badge = (level) => `<span class="process-evidence ${esc(level)}">${esc(labels[level] || level)}</span>`;
-  const cards = (items, empty = '官网当前未列出该类项目。') => items?.length ? items.map((item) => `<article class="process-card"><div class="process-card-head"><b>${esc(item.name || item.text)}</b>${badge(item.evidenceLevel)}</div>${item.detail ? `<p>${esc(item.detail)}</p>` : ''}${item.status === 'unknown' ? '<small>状态：官网尚未公开统一安排</small>' : ''}${item.status === 'none' ? '<small>状态：官网明确说明不采用该环节</small>' : ''}</article>`).join('') : `<div class="notice">${esc(empty)}</div>`;
+  const resourceLinks = (item) => item.resources?.length ? `<div class="process-resources"><strong>官方准备资源</strong>${item.resources.map((resource) => `<a href="${esc(resource.url)}" target="_blank" rel="noopener">${esc(resource.label)} →</a>`).join('')}${item.resourceNote ? `<small>${esc(item.resourceNote)}</small>` : ''}</div>` : '';
+  const cards = (items, empty = '官网当前未列出该类项目。') => items?.length ? items.map((item) => `<article class="process-card"><div class="process-card-head"><b>${esc(item.name || item.text)}</b>${badge(item.evidenceLevel)}</div>${item.detail ? `<p>${esc(item.detail)}</p>` : ''}${item.status === 'unknown' ? '<small>状态：官网尚未公开统一安排</small>' : ''}${item.status === 'none' ? '<small>状态：官网明确说明不采用该环节</small>' : ''}${resourceLinks(item)}</article>`).join('') : `<div class="notice">${esc(empty)}</div>`;
   const materialGroup = (title, items) => `<div class="process-material-group"><h3>${esc(title)}</h3>${cards(items)}</div>`;
 
   function render(process, reports = []) {

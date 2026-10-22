@@ -86,7 +86,15 @@
     mit.assessments = [
       evidence('Video Question 1', '随申请提交；最长 90 秒、一次拍摄、不可剪辑，不加配乐或字幕，直接面对镜头自然讲述个人故事。', sourceId, 'official_required', { status: 'required' }),
       evidence('Video Question 2', '随申请提交；随机开放题、非技术题，仅一次录制机会，不可重录。', sourceId, 'official_required', { status: 'required' }),
-      evidence('受邀数量能力评估', '虚拟进行，约 30 分钟。官方称无需事先准备，具体说明随面试邀请发送；官网没有公开固定题库。', sourceId, 'official_required', { status: 'invited' }),
+      evidence('受邀数量能力评估', '虚拟进行，约 30 分钟。官方称无需事先准备，具体说明随面试邀请发送；官网没有公开固定题库。', sourceId, 'official_required', {
+        status: 'invited',
+        resourceNote: 'MIT 将以下材料用于自查 MFin 课程所需的金融数学准备度；它们不等同于当年招生数量评估的固定题型或考纲。',
+        resources: [
+          { label: '官方 Self-Assessment 与准备说明', url: 'https://mitsloan.mit.edu/mfin/admissions/suggested-background' },
+          { label: '官方 Financial Mathematics Sample Exam', url: 'https://mitsloan.mit.edu/sites/default/files/2019-03/MFin%20Sample%20Exam.pdf' },
+          { label: '官方 Sample Exam Solutions', url: 'https://mitsloan.mit.edu/sites/default/files/2019-03/MFin%20Sample%20Exam%20Solution.pdf' }
+        ]
+      }),
       evidence('受邀行为面试', '虚拟一对一约 30 分钟，考察团队合作、决策、解决问题、专业表现、沟通和英语能力。', sourceId, 'official_required', { status: 'invited' })
     ];
     mit.preparation = [
