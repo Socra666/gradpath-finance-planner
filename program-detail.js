@@ -66,6 +66,9 @@
   const mats={required:[],optional:[],evidence:[]};p.materials.forEach(x=>mats[classifyMaterial(x)].push(x));
   const known=!/待|以新|以.*为准|已关闭|分别更新|各自周期|分轮次|同时申请|预计/.test(p.deadline), info=categoryInfo[category()]||categoryInfo.finance;
   const testInfo=assessment(),advice=(window.GRADPATH_ADVICE||[]).filter(x=>x.ids.includes(p.id)), cases=(window.GRADPATH_CASES||[]).filter(x=>x.ids.includes(p.id));
+  const processRecord=window.GRADPATH_GET_PROCESS?window.GRADPATH_GET_PROCESS(p.id):null;
+  const experienceReports=(window.GRADPATH_APPLICATION_EXPERIENCES||{})[p.id]||[];
+  const processPanel=window.GRADPATH_RENDER_APPLICATION_PROCESS?window.GRADPATH_RENDER_APPLICATION_PROCESS(processRecord,experienceReports):'';
   const officialSources=official.same?[{url:official.program,label:'项目官网与申请入口',type:'官方一手来源'}]:[{url:official.program,label:'官网项目介绍',type:'官方一手来源'},{url:official.apply,label:'官网申请入口',type:'官方一手来源'}];
   const sourceRows=[...officialSources,...((req&&req.sources)||[]),...(testInfo.source?[{url:testInfo.source,label:'测评与面试官方说明',type:'官方一手来源'}]:[]),...advice.map(x=>({url:x.source,label:x.title,type:x.label})),...cases.filter(x=>x.trust==='高').map(x=>({url:x.source,label:x.program+' 班级/目标画像',type:x.type}))];
   const uniqueSources=sourceRows.filter((x,i,a)=>x.url&&a.findIndex(y=>normalizeUrl(y.url)===normalizeUrl(x.url))===i);
@@ -100,6 +103,7 @@
   ${barPanel()}
   <section class="panel"><h2>培养内容与项目属性</h2><div class="topic-grid">${topics().map(x=>`<div class="topic"><b>${x[0]}</b><p>${x[1]}</p></div>`).join('')}</div><p class="notice">这里展示的是官网定位所对应的学习主题，不冒充当年逐门课程清单；选修课和课程名称可能每年调整。</p></section>
   <section class="panel"><h2>申请轮次与日期</h2><div class="topic"><b>当前可确认的截止信息</b><p>${esc(p.deadline)}</p></div><h3>准备与申请时间线</h3><div class="timeline">${p.events.map(e=>`<div class="event"><b>${esc(e[0])}</b><p>${esc(e[1])}</p></div>`).join('')}</div>${known?'':'<div class="notice">2027 入学轮次尚未由项目完整公布。页面保留准备顺序，但不把上一申请季的日期写成当前日期。</div>'}</section>
+  ${processPanel}
   ${requirementPanel()}
   <section class="panel"><h2>材料清单：必须、条件性与能力证明</h2><div class="material-grid">${materialCol('必须提交',mats.required,'')}${materialCol('条件性 / 可选择材料',mats.optional,'optional')}${materialCol('背景与准备度证明',mats.evidence,'evidence')}</div><h3>如何理解分类</h3><p>“必须提交”意味着当前项目摘要将其列入完整申请；“条件性”包括语言豁免、可选标化和“如有”成果；“背景证明”可能不是单独上传入口，但必须通过成绩单、简历、文书或推荐信体现。</p></section>
   <section class="panel"><h2>视频、笔试、测评与面试</h2><div class="timeline">${testInfo.items.map(x=>`<div class="event"><b>${esc(x[0])}</b><p>${esc(x[1])}</p></div>`).join('')}</div>${testInfo.source?`<a class="back" href="${testInfo.source}" target="_blank" rel="noopener">查看该环节官方说明 →</a>`:'<div class="notice">当前官方摘要没有披露更细的形式。页面宁可保留未知，也不把往届经验写成确定规则。</div>'}</section>
